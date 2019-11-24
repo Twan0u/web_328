@@ -2,3 +2,8 @@ server:
   port: 8082
   servlet:
     contextPath: /buyMyBag
+spring:
+  datasource:
+    password: yourStrong(!)Password
+    username : user1
+    url: jdbc:mysql://localhost:3306/shopping_website_db?serverTimezone=UTC&useLegacyDatetimeCode=false

@@ -115,3 +115,50 @@ insert into product(name, description, price, category_name) values ("t", "desc 
 insert into product(name, description, price, category_name) values ("v", "desc v", 20.2, "Trousses");
 
 insert into product(name, description, price, category_name) values ("z", "desc z", 20.2, "Sacs de voyage");
+
+insert into image(image_uri, product_name) values ("https://i.ibb.co/SJyYTs9/u2.jpg", "u");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/nbqgJsQ/u.jpg", "u");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/hYcWsv2/h.jpg", "h");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/q0FCqwN/g.jpg", "g");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/2nHp2B2/g2.jpg", "g");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/RYspwL2/f.jpg", "f");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/YZT5SMS/f2.jpg", "f");
+
+insert into image(image_uri, product_name) values ("https://i.ibb.co/WHKH3JL/y.jpg", "y");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/gWzJFHX/x.jpg", "x");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/SJ0XdQF/s.jpg", "s");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/nmB7rdc/s2.jpg", "s");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/0sm3Z4T/k.jpg", "k");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/2PSZBW5/k2.jpg", "k");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/gWFsN1v/d.jpg", "d");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/pvTZVnm/d2.jpg", "d");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/LYX5Z3g/c.jpg", "c");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/YT5FnZ1/c2.jpg", "c");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/zVNYNn9/b.jpg", "b");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/2gmnjSj/b2.jpg", "b");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/zx6F2Zf/a.jpg", "a");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/6vJg577/a2.jpg", "a");
+
+
+insert into image(image_uri, product_name) values ("https://i.ibb.co/znW1b78/w.jpg", "w");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/qgk0V0z/w2.jpg", "w");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/LZTHfRd/r.jpg", "r");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/7n4wGYv/r2.jpg", "r");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/6gGLyDc/e.jpg", "e");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/gFMghNS/e2.jpg", "e");
+
+insert into image(image_uri, product_name) values ("https://i.ibb.co/nLmvj7G/v.jpg", "v");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/QvH7JhG/t.jpg", "t");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/gtJY39T/q.jpg", "q");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/HD0GkN7/p.jpg", "p");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/r7b4Z9x/o.jpg", "o");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/n6F33Hq/n.jpg", "n");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/xKbJBkm/m.jpg", "m");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/0r9vNrd/l.jpg", "l");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/5xsc7cN/j.jpg", "j");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/gZX4jmx/i.jpg", "i");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/1zVqJSy/i2.jpg", "i");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/8gZ34n4/aa.jpg", "aa");
+
+insert into image(image_uri, product_name) values ("https://i.ibb.co/jJ8pkWM/z.jpg", "z");
+insert into image(image_uri, product_name) values ("https://i.ibb.co/hdZQ1KX/z2.jpg", "z");

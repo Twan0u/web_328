@@ -5,6 +5,7 @@ import com.spring.henallux.buyMyBag.dataAccess.repository.IUserRepository;
 import com.spring.henallux.buyMyBag.model.UserModel;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,5 +31,12 @@ public class UserDAO implements IUserDataAccess {
             userModels.add(mapper.map(userEntity, UserModel.class));
         }
         return userModels;
+    }
+
+    @Override
+    public UserModel findByUserName(String username) {
+        UserEntity userEntity = userRepository.findByUsername(username);
+        UserModel userModel = mapper.map(userEntity, UserModel.class);
+        return userModel;
     }
 }

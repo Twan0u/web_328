@@ -1,6 +1,12 @@
 package com.spring.henallux.buyMyBag.model;
 
-public class UserModel {
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.*;
+
+public class UserModel implements UserDetails {
     private String login;
     private String password;
     private String email;
@@ -102,11 +108,28 @@ public class UserModel {
         return username;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return non_expired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return non_locked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return credentials_non_expired;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getAuthorities() {
+    public Set<? extends GrantedAuthority> getAuthorities() {
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(this.authorities));
         return authorities;
     }
 

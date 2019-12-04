@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS user(
 	locality varchar(255) not null,
 	postal_code varchar(20) not null,
 	username varchar(120) not null,
-	authorities varchar(150) not null,
+	authorities varchar(500) not null,
 	non_expired tinyint(1) not null,
 	non_locked tinyint(1) not null,
 	credentials_non_expired tinyint(1) not null,

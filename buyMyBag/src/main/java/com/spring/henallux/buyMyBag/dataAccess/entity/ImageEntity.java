@@ -11,9 +11,9 @@ public class ImageEntity {
     @Column
     private String image_uri;
     @OneToOne
-    @JoinColumn(name="category_name")
+    @JoinColumn(name="category_name", referencedColumnName="name")
     private CategoryEntity category;
     @OneToOne
-    @JoinColumn(name="product_name")
+    @JoinColumn(name="product_name", referencedColumnName="name")
     private ProductEntity product;
 }

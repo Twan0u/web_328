@@ -2,10 +2,7 @@ package com.spring.henallux.buyMyBag.dataAccess.entity;
 
 import com.spring.henallux.buyMyBag.model.CategoryModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="product")
@@ -17,6 +14,7 @@ public class ProductEntity {
     private String description;
     @Column
     private double price;
-    @Column(name="category_name")
-    private CategoryModel category;
+    @ManyToOne
+    @JoinColumn(name="category_name", referencedColumnName="name")
+    private CategoryEntity category;
 }

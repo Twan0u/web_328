@@ -37,7 +37,7 @@ body{font-family: 'Raleway', sans-serif;}
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="login.html">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart">Mon Panier</a>
@@ -76,7 +76,7 @@ body{font-family: 'Raleway', sans-serif;}
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+              <img class="d-block img-fluid" src="snowman-1882635_960_720.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
               <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
@@ -131,61 +131,61 @@ body{font-family: 'Raleway', sans-serif;}
   </div>
   <!-- /.container -->
 
-  <footer class="py-5 bg-dark">
-          <!-- Button trigger modal-->
+
+  <!-- Modal: modalCart -->
+  <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Your cart</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Retirer</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr>
+    <th scope="row">1</th>
+    <td>Product 1</td>
+    <td>100$</td>
+    <td><a><i class="far fa-times"></i></a></td>
+  </tr>
+              <tr class="total">
+                  <th scope="row">5</th>
+                  <td>Total</td>
+                  <td>400$</td>
+                  <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <!--Footer-->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal: modalCart -->
+
+  <!--<footer class="py-5 bg-dark">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Launch modal</button>
-
-            <!-- Modal: modalCart -->
-            <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <!--Header-->
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Your cart</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                  <!--Body-->
-                  <div class="modal-body">
-
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Produit</th>
-                          <th>Prix</th>
-                          <th>Retirer</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                         <tr>
-              <th scope="row">1</th>
-              <td>Product 1</td>
-              <td>100$</td>
-              <td><a><i class="far fa-times"></i></a></td>
-            </tr>
-                        <tr class="total">
-                            <th scope="row">5</th>
-                            <td>Total</td>
-                            <td>400$</td>
-                            <td></td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                  </div>
-                  <!--Footer-->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary">Checkout</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Modal: modalCart -->
-  </footer>
+  </footer>-->
 
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -24,6 +24,6 @@ public class homePageController  {
     public String home(Model model){
         model.addAttribute("products", productService.getAll());
         model.addAttribute("categories", categoryService.getAll());
-        return "index";
+        return "integrated:index";
     }
 }

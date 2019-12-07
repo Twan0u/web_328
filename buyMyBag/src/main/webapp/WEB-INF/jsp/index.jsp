@@ -110,16 +110,19 @@ body{font-family: 'Raleway', sans-serif;}
         <div class="row">
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item</a>
-                </h4>
-                <h5>€ PRICE</h5>
-                <p class="card-text">DESCRIPTION</p>
+
+            <c:forEach items="${products}" var="product">
+              <div class="card h-100">
+                <a href='#'><img class="card-img-top" src='${product.getFirstImage()}' alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">${product.getName()}</a>
+                  </h4>
+                  <h5>${product.getPrice()}€</h5>
+                  <p class="card-text">${product.getDescription()}</p>
+                </div>
               </div>
-            </div>
+            </c:forEach>
 
           </div>
 

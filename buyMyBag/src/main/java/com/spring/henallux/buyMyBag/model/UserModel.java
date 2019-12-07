@@ -24,6 +24,10 @@ public class UserModel implements UserDetails {
     private boolean credentials_non_expired;
     private boolean enabled;
 
+    public UserModel(){
+
+    }
+
     public String getLogin() {
         return login;
     }

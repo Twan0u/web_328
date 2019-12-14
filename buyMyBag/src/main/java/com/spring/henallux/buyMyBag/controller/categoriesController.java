@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value="/home")
-public class homePageController  {
+@RequestMapping(value="/catego")
+public class categoriesController {
     private ProductService productService;
     private CategoryService categoryService;
 
     @Autowired
-    public homePageController(ProductService productService, CategoryService categoryService){
+    public categoriesController(ProductService productService, CategoryService categoryService){
         this.productService = productService;
         this.categoryService = categoryService;
     }
 
     @RequestMapping(method= RequestMethod.GET)
-    public String home(Model model) {
+    public String catego(Model model) {
         model.addAttribute("products", productService.getAll());
         model.addAttribute("categories", categoryService.getAll());
-        return "integrated:index";
+        return "integrated:category";
     }
 }

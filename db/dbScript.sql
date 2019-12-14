@@ -76,8 +76,6 @@ CREATE TABLE IF NOT EXISTS promotion (
 	min_order_price_for_application double
 )engine=InnoDB;
 
-grant all on shopping_website_db.* to 'user1'@'127.0.0.1';
-
 insert into category(name) values("Sacs en bandoulières");
 insert into category(name) values("Sacs cabas");
 insert into category(name) values("Sacs à dos");

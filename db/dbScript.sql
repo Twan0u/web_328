@@ -33,21 +33,21 @@ CREATE TABLE IF NOT EXISTS language (
 	language varchar(50) primary key
 )engine=InnoDB;
 
-CREATE TABLE IF NOT EXISTS traduction (
-	id int auto_increment primary key,
-	category_name_traduction varchar(255) not null,
-	language varchar(50) not null,
-	category_name varchar(50) not null,
-    foreign key(language) references language(language),
-    foreign key(category_name) references category(name)
-)engine=InnoDB;
-
 CREATE TABLE IF NOT EXISTS product (
 	name varchar(50) primary key,
 	description varchar(1000),
 	price double not null,
 	category_name varchar(50) not null,
     foreign key(category_name) references category(name)
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS translation (
+	id int auto_increment primary key,
+	language varchar(50) not null,
+	product_description_translation varchar(1000) not null,
+	product_description varchar(50) not null,
+    foreign key(language) references language(language),
+    foreign key(product_description) references product(name)
 )engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS image (

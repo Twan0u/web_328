@@ -113,7 +113,7 @@ body{font-family: 'Raleway', sans-serif;}
 
             <c:forEach items="${products}" var="product">
               <div class="card h-100">
-                <a href='#'><img class="card-img-top" src='${product.getFirstImage()}' alt=""></a>
+                <a href="<c:url value='/detail/${product.getName()}'/>"><img class="card-img-top" src='${product.getFirstImage()}' alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#">${product.getName()}</a>

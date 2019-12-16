@@ -33,4 +33,5 @@ public class categoryController {
             return "integrated:error";
         }
     }
+
 }

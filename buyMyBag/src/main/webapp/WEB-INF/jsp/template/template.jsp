@@ -18,6 +18,8 @@
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway&display=swap" rel="stylesheet">
+    <style>
+        .row{margin-bottom: 5%}</style>
 </head>
 <body>
 
@@ -46,7 +48,7 @@
 
     <tiles:insertAttribute name="main-content"/>
 
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark ">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; BuyMyBigBag 2019</p>
         </div>

@@ -5,6 +5,12 @@
     <title>Error</title>
 </head>
 <body>
-<h1>${errorMessage}</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>${errorMessage}</h1>
+        <img src="https://media.giphy.com/media/mwGKLgCkTIdQA/giphy.gif">
+    </div>
+</div>
+
 </body>
 </html>

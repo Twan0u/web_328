@@ -60,15 +60,13 @@ body{font-family: 'Raleway', sans-serif;}
 
         <div class="row">
 
-
-
           <c:forEach items="${products}" var="product">
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="<c:url value='/detail/${product.getName()}'/>"><img class="card-img-top" src='${product.getFirstImage()}' alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">${product.getName()}</a>
+                    <a href="<c:url value='/detail/${product.getName()}'/>">${product.getName()}</a>
                   </h4>
                   <h5>${product.getPrice()}€</h5>
                   <p class="card-text">${product.getDescription()}</p>
@@ -90,8 +88,6 @@ body{font-family: 'Raleway', sans-serif;}
 
   </div>
   <!-- /.container -->
-
-
 
 </body>
 

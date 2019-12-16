@@ -1,6 +1,7 @@
 package com.spring.henallux.buyMyBag.service;
 
 import com.spring.henallux.buyMyBag.dataAccess.dao.ProductDAO;
+import com.spring.henallux.buyMyBag.exception.ProductDAOException;
 import com.spring.henallux.buyMyBag.model.ImageModel;
 import com.spring.henallux.buyMyBag.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,27 @@ public class ProductService {
     }
     public List<ProductModel> getAll(){
         List<ProductModel>productModels = productDAO.getAll();
-        List<String>image_urls;
         for(ProductModel productModel : productModels){
-            image_urls = imageService.findByProductName(productModel.getName()).stream().map(imageModel -> imageModel.getImage_uri()).collect(Collectors.toList());
-            productModel.setImages(image_urls);
+            productModel.setImages(getImagesOfProduct(productModel.getName()));
         }
         return productModels;
+    }
+
+    public ProductModel getByName(String name) throws ProductDAOException {
+        ProductModel productModel = productDAO.getByName(name);
+        productModel.setImages(getImagesOfProduct(name));
+        return productModel;
+    }
+
+    public List<ProductModel> getByCategoryName(String name) throws ProductDAOException {
+        List<ProductModel> productModels = productDAO.getByCategoryName(name);
+        for(ProductModel productModel : productModels){
+            productModel.setImages(getImagesOfProduct(productModel.getName()));
+        }
+        return productModels;
+    }
+
+    private List<String> getImagesOfProduct(String productName){
+        return imageService.findByProductName(productName).stream().map(imageModel -> imageModel.getImage_uri()).collect(Collectors.toList());
     }
 }

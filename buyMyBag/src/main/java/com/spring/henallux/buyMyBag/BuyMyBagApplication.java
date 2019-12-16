@@ -12,5 +12,4 @@ public class BuyMyBagApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BuyMyBagApplication.class, args);
 	}
-
 }

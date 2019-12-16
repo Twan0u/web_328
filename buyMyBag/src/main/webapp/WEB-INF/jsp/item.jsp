@@ -18,12 +18,14 @@
     <div class="row">
 
       <div class="col-lg-3">
-        <h1 class="my-4">Shop Name</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item active">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div>
+
+        <h1 class="my-4" style="font-family: 'Pacifico', cursive;" >Home</h1>
+        <c:forEach items="${categories}" var="category">
+          <div class="list-group">
+            <a href="<c:url value="/category/${category.getName()}"/>" class="list-group-item" style="font-family: 'Pacifico', cursive;">${category.getName()}</a>
+          </div>
+        </c:forEach>
+
       </div>
       <!-- /.col-lg-3 -->
 

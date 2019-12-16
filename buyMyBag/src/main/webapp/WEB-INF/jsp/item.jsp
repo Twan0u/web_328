@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>TODO _ ITEM _ NAME</title>
+  <title>${product.getName()}</title>
 
   <!-- Custom styles for this template -->
   <link href="css/shop-item.css" rel="stylesheet">

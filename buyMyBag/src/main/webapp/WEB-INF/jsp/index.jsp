@@ -24,7 +24,7 @@ body{font-family: 'Raleway', sans-serif;}
         <h1 class="my-4" style="font-family: 'Pacifico', cursive;" >Home</h1>
         <c:forEach items="${categories}" var="category">
           <div class="list-group">
-            <a href="#" class="list-group-item" style="font-family: 'Pacifico', cursive;">${category.getName()}</a>
+            <a href="<c:url value="/category/${category.getName()}"/>" class="list-group-item" style="font-family: 'Pacifico', cursive;">${category.getName()}</a>
           </div>
         </c:forEach>
 

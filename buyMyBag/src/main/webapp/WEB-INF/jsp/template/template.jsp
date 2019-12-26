@@ -33,12 +33,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="font-family: 'Pacifico', cursive;">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+                    <a class="nav-link" href="/" style="font-family: 'Pacifico', cursive;">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login" style="font-family: 'Pacifico', cursive;">Se Connecter</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/signUp" style="font-family: 'Pacifico', cursive;">S'inscrire</a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier</a>
                 </li>
             </ul>
         </div>

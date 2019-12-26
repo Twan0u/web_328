@@ -4,20 +4,48 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.*;
 
 public class UserModel implements UserDetails {
+    @Size(min=4, max=32)
+    @NotNull
     private String login;
+    @Size(min=4, max=32)
+    @NotNull
     private String password;
+    @Size(min=4, max=32)
+    @NotNull
+    private String passwordBis;
+    @NotNull
+    @Email
     private String email;
+    @Size(min=1, max=100)
     private String streetname;
+    @Size(min=1, max=1000)
     private String streetnumber;
+
+    @Size(min=1, max=32)
     private String gender;
+
+    @Size(min=4, max=32)
+    @NotNull
     private String first_name;
+
+    @Size(min=4, max=32)
+    @NotNull
     private String last_name;
+
+    @Size(min=1, max=32)
+    @NotNull
     private String locality;
+
+    @Size(min=1, max=32)
+    @NotNull
     private String postal_code;
-    private String username;
+
     private String authorities;
     private boolean non_expired;
     private boolean non_locked;
@@ -35,6 +63,7 @@ public class UserModel implements UserDetails {
     public void setLogin(String login) {
         this.login = login;
     }
+
 
     public String getPassword() {
         return password;
@@ -109,7 +138,7 @@ public class UserModel implements UserDetails {
     }
 
     public String getUsername() {
-        return username;
+        return this.login;
     }
 
     @Override
@@ -127,9 +156,7 @@ public class UserModel implements UserDetails {
         return credentials_non_expired;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String username) {}
 
     public Set<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();

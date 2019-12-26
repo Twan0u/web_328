@@ -28,5 +28,6 @@ target/
 build/
 
 ### VS Code ###
-.vscode/
-.yml
+*.vscode/
+*.yml
+application.yml

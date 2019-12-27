@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class UserEntity {
     @Column
     @Id
-    private String login;
+    private String username;
     @Column
     private String password;
     @Column
@@ -28,9 +28,9 @@ public class UserEntity {
     @Column
     private String locality;
     @Column
-    private String postal_code;
+    private String phone_number;
     @Column
-    private String username;
+    private String postal_code;
     @Column
     private String authorities;
     @Column
@@ -41,14 +41,6 @@ public class UserEntity {
     private boolean credentials_non_expired;
     @Column
     private boolean enabled;
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
     public String getPassword() {
         return password;

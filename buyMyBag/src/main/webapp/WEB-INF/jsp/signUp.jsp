@@ -17,17 +17,15 @@ User inscription :
     <form:label path="last_name">Last Name</form:label>
     <form:input path="last_name"/>
     <form:errors path="last_name"/>
-    <form:label path="login">Login</form:label>
-    <form:input path="login"/>
-    <form:errors path="login"/>
+    <form:label path="username">Username</form:label>
+    <form:input path="username"/>
+    <form:errors path="username"/>
     <form:label path="password">Password</form:label>
     <form:input path="password"/>
     <form:errors path="password"/>
-    <c:if test = "${passwordMatch !=NULL}">${passwordMatch}</c:if>
-    <form:label path="passwordBis">Password</form:label>
-    <form:input path="passwordBis"/>
-    <form:errors path="passwordBis"/>
-
+    <form:label path="validationPassword">Password</form:label>
+    <form:input path="validationPassword"/>
+    <form:errors path="validationPassword"/>
     <form:label path="email">E-Mail</form:label>
     <form:input path="email"/>
     <form:errors path="email"/>

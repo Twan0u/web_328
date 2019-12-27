@@ -1,9 +1,9 @@
 server:
   port: 8082
   servlet:
-    contextPath: /buyMyBag
+    contextPath: /
 spring:
   datasource:
-    password: BuyMyBag69
+    password: Diablerouge98
     username : root
-    url: jdbc:mysql://buymybag.ck8e4ot53w8k.eu-central-1.rds.amazonaws.com:3306/website_shop_db?serverTimezone=UTC&useLegacyDatetimeCode=false
+    url: jdbc:mysql://localhost:3306/shopping_website_db?serverTimezone=UTC&useLegacyDatetimeCode=false

@@ -24,6 +24,6 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
             //caster user
             return user;
         }
-        throw new UsernameNotFoundException("User nto found");
+        throw new UsernameNotFoundException("User not found");
     }
 }

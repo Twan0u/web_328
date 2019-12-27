@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS user(
-	login varchar(100) primary key,
+	username varchar(120) primary key,
 	password varchar(70) not null,
 	email varchar(100) unique not null,
 	streetname varchar(255) not null,
@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS user(
 	first_name varchar(255) not null,
 	last_name varchar(255) not null,
 	locality varchar(255) not null,
+	phone_number varchar(255) not null,
 	postal_code varchar(20) not null,
-	username varchar(120) not null,
 	authorities varchar(500) not null,
 	non_expired tinyint(1) not null,
 	non_locked tinyint(1) not null,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS clientorder
 	id int auto_increment primary key,
 	creation_date datetime not null,
 	user_login varchar(100) not null,
-	FOREIGN KEY (user_login) REFERENCES user(login)
+	FOREIGN KEY (user_login) REFERENCES user(username)
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS category (

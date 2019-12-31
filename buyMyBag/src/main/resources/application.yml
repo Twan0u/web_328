@@ -1,7 +1,8 @@
 server:
-  port: 8082
+  port: 80
   servlet:
-    contextPath: /buyMyBag
+    contextPath: /
+
 spring:
   datasource:
     password: BuyMyBag69

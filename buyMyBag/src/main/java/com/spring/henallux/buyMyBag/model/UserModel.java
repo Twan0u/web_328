@@ -3,7 +3,6 @@ package com.spring.henallux.buyMyBag.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -11,62 +10,25 @@ import javax.validation.constraints.Size;
 import java.util.*;
 
 public class UserModel implements UserDetails {
-    @Size(min=2, max=32)
-    @NotNull
     private String username;
-
-    @Size(min=4, max=32)
-    @NotNull
     private String password;
-
-    @Size(min=4, max=32)
-    @NotNull
     private String validationPassword;
-
-    @NotNull
-    @Email
     private String email;
-
-    @Size(min=1, max=100)
-    @NotNull
     private String streetname;
-
-    @Size(min=1, max=10)
-    @NotNull
     private String streetnumber;
-
-    @Size(min=1, max=32)
     private String gender;
-
-    @Size(min=4, max=32)
-    @NotNull
     private String first_name;
-
-    @Size(min=4, max=32)
-    @NotNull
     private String last_name;
-
-    @Size(min=1, max=32)
-    @NotNull
     private String locality;
-
-    @Size(min=1, max=32)
-    @NotNull
     private String postal_code;
-
-    @Size(min=5, max=25)
-    @NotNull
     private String phone_number;
-
     private String authorities;
     private boolean non_expired;
     private boolean non_locked;
     private boolean credentials_non_expired;
     private boolean enabled;
 
-    public UserModel(){
-
-    }
+    public UserModel(){ }
 
 
     public String getPassword() {

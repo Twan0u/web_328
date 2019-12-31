@@ -1,5 +1,6 @@
 package com.spring.henallux.buyMyBag.controller;
 
+import com.spring.henallux.buyMyBag.ViewDTO.UserDTO;
 import com.spring.henallux.buyMyBag.model.UserModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +17,7 @@ public class signUpController {
 
     @RequestMapping(method= RequestMethod.GET)
     public String inscriptionPage(Model model){
-        model.addAttribute("newUser",new UserModel());
+        model.addAttribute("newUser",new UserDTO());
         return "integrated:signUp";
     }
 

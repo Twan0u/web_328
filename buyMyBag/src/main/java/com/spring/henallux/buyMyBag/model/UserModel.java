@@ -3,6 +3,7 @@ package com.spring.henallux.buyMyBag.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -10,21 +11,28 @@ import javax.validation.constraints.Size;
 import java.util.*;
 
 public class UserModel implements UserDetails {
-    @Size(min=4, max=32)
+    @Size(min=2, max=32)
     @NotNull
-    private String login;
+    private String username;
+
     @Size(min=4, max=32)
     @NotNull
     private String password;
+
     @Size(min=4, max=32)
     @NotNull
-    private String passwordBis;
+    private String validationPassword;
+
     @NotNull
     @Email
     private String email;
+
     @Size(min=1, max=100)
+    @NotNull
     private String streetname;
-    @Size(min=1, max=1000)
+
+    @Size(min=1, max=10)
+    @NotNull
     private String streetnumber;
 
     @Size(min=1, max=32)
@@ -46,6 +54,10 @@ public class UserModel implements UserDetails {
     @NotNull
     private String postal_code;
 
+    @Size(min=5, max=25)
+    @NotNull
+    private String phone_number;
+
     private String authorities;
     private boolean non_expired;
     private boolean non_locked;
@@ -54,14 +66,6 @@ public class UserModel implements UserDetails {
 
     public UserModel(){
 
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
 
@@ -138,7 +142,7 @@ public class UserModel implements UserDetails {
     }
 
     public String getUsername() {
-        return this.login;
+        return this.username;
     }
 
     @Override
@@ -156,7 +160,9 @@ public class UserModel implements UserDetails {
         return credentials_non_expired;
     }
 
-    public void setUsername(String username) {}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public Set<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
@@ -198,5 +204,21 @@ public class UserModel implements UserDetails {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getValidationPassword() {
+        return validationPassword;
+    }
+
+    public void setValidationPassword(String validationPassword) {
+        this.validationPassword = validationPassword;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 }

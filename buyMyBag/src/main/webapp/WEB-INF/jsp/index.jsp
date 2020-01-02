@@ -61,7 +61,6 @@ body{font-family: 'Raleway', sans-serif;}
               <span class="sr-only">Next</span>
             </a>
           </div>
-          </div>
         </div>
 
         <div class="row">

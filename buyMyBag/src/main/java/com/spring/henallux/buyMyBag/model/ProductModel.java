@@ -1,22 +1,22 @@
 package com.spring.henallux.buyMyBag.model;
 
+import com.spring.henallux.buyMyBag.constants.Constants;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductModel {
     private String name;
-    private String description;
+    private List<TranslationModel>translations;
     private double price;
     private CategoryModel category;
     private List<String> images = new ArrayList<>();
 
-    public ProductModel(){
+    public ProductModel(){ }
 
-    }
-
-    public ProductModel(String name, String description, double price, CategoryModel category) {
+    public ProductModel(String name, List<TranslationModel>translations, double price, CategoryModel category) {
         setName(name);
-        setDescription(description);
+        setTranslations(translations);
         setPrice(price);
         setCategory(category);
     }
@@ -34,12 +34,20 @@ public class ProductModel {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public List<TranslationModel> getTranslations() {
+        return translations;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getDescription(String language){
+        for(TranslationModel translation : translations){
+            if(translation.getLanguage().getLanguage().equals(language))
+                return translation.getProductDescriptionTranslation();
+        }
+        return "";
+    }
+
+    public void setTranslations(List<TranslationModel> translations) {
+        this.translations = translations;
     }
 
     public double getPrice() {

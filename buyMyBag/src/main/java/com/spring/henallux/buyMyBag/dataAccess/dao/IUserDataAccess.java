@@ -7,4 +7,6 @@ import java.util.List;
 public interface IUserDataAccess {
     List<UserModel> getAll();
     UserModel findByUserName(String username);
+    UserModel findByEmail(String email);
+    void save(UserModel userModel);
 }

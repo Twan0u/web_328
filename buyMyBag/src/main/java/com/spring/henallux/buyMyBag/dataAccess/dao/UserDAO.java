@@ -36,7 +36,22 @@ public class UserDAO implements IUserDataAccess {
     @Override
     public UserModel findByUserName(String username) {
         UserEntity userEntity = userRepository.findByUsername(username);
-        UserModel userModel = mapper.map(userEntity, UserModel.class);
-        return userModel;
+        if(userEntity == null)
+            return null;
+        return mapper.map(userEntity, UserModel.class);
+    }
+
+    @Override
+    public UserModel findByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+        if(userEntity == null)
+            return null;
+        return mapper.map(userEntity, UserModel.class);
+    }
+
+    @Override
+    public void save(UserModel userModel) {
+        UserEntity userEntity = mapper.map(userModel, UserEntity.class);
+        userRepository.save(userEntity);
     }
 }

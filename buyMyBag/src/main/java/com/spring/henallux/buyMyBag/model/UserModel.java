@@ -3,16 +3,11 @@ package com.spring.henallux.buyMyBag.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.*;
 
 public class UserModel implements UserDetails {
     private String username;
     private String password;
-    private String validationPassword;
     private String email;
     private String streetname;
     private String streetnumber;
@@ -166,14 +161,6 @@ public class UserModel implements UserDetails {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public String getValidationPassword() {
-        return validationPassword;
-    }
-
-    public void setValidationPassword(String validationPassword) {
-        this.validationPassword = validationPassword;
     }
 
     public String getPhone_number() {

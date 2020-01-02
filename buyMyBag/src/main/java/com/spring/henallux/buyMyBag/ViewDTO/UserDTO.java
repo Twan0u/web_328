@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class UserDTO {
+
     @Size(min=2, max=32)
     @NotNull
     private String username;

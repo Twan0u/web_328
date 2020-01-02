@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS user(
 
 CREATE TABLE IF NOT EXISTS clientorder
 (
-	id int auto_increment primary key,
+	id int auto_increment primary key AUTO_INCREMENT,
 	creation_date datetime not null,
 	user_login varchar(100) not null,
 	FOREIGN KEY (user_login) REFERENCES user(username)
@@ -35,23 +35,22 @@ CREATE TABLE IF NOT EXISTS language (
 
 CREATE TABLE IF NOT EXISTS product (
 	name varchar(50) primary key,
-	description varchar(1000),
 	price double not null,
 	category_name varchar(50) not null,
     foreign key(category_name) references category(name)
 )engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS translation (
-	id int auto_increment primary key,
+	id int primary key AUTO_INCREMENT,
 	language varchar(50) not null,
 	product_description_translation varchar(1000) not null,
-	product_description varchar(50) not null,
+	product varchar(50) not null,
     foreign key(language) references language(language),
-    foreign key(product_description) references product(name)
+    foreign key(product) references product(name)
 )engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS image (
-	id int auto_increment primary key,
+	id int primary key AUTO_INCREMENT,
 	image_uri varchar(300) not null,
 	category_name varchar(50),
 	product_name varchar(50),
@@ -60,9 +59,9 @@ CREATE TABLE IF NOT EXISTS image (
 )engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS orderline (
-	id bigint auto_increment primary key,
-	quantity int not null,
-	price double not null,
+	id bigint primary key AUTO_INCREMENT,
+	quantity int not null CHECK (quantity > 0),
+	price double not null CHECK (price > 0),
 	order_id int not null,
 	product_name varchar(50) not null,
     foreign key(order_id) references clientorder(id),
@@ -73,7 +72,7 @@ CREATE TABLE IF NOT EXISTS promotion (
 	eventname varchar(150) primary key,
 	event_start_date datetime not null,
 	event_end_date datetime not null,
-	min_order_price_for_application double
+	min_order_price_for_application double CHECK (min_order_price_for_application >= 0)
 )engine=InnoDB;
 
 insert into category(name) values("Sacs en bandoulières");
@@ -82,37 +81,37 @@ insert into category(name) values("Sacs à dos");
 insert into category(name) values("Trousses");
 insert into category(name) values("Sacs de voyage");
 
-insert into product(name, description, price, category_name) values ("f", "desc f", 20.2, "Sacs en bandoulières");
-insert into product(name, description, price, category_name) values ("g", "desc g", 20.2, "Sacs en bandoulières");
-insert into product(name, description, price, category_name) values ("h", "desc h", 20.2, "Sacs en bandoulières");
-insert into product(name, description, price, category_name) values ("u", "desc u", 20.2, "Sacs en bandoulières");
+insert into product(name, price, category_name) values ("f", 20.2, "Sacs en bandoulières");
+insert into product(name, price, category_name) values ("g", 20.2, "Sacs en bandoulières");
+insert into product(name, price, category_name) values ("h", 20.2, "Sacs en bandoulières");
+insert into product(name, price, category_name) values ("u", 20.2, "Sacs en bandoulières");
 
-insert into product(name, description, price, category_name) values ("a", "desc a", 20.2, "Sacs cabas");
-insert into product(name, description, price, category_name) values ("b", "desc b", 20.2, "Sacs cabas");
-insert into product(name, description, price, category_name) values ("c", "desc c", 20.2, "Sacs cabas");
-insert into product(name, description, price, category_name) values ("d", "desc d", 20.2, "Sacs cabas");
-insert into product(name, description, price, category_name) values ("k", "desc k", 20.2, "Sacs cabas");
-insert into product(name, description, price, category_name) values ("s", "desc s", 20.2, "Sacs cabas");
-insert into product(name, description, price, category_name) values ("x", "desc x", 20.2, "Sacs cabas");
-insert into product(name, description, price, category_name) values ("y", "desc y", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("a", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("b", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("c", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("d", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("k", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("s", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("x", 20.2, "Sacs cabas");
+insert into product(name, price, category_name) values ("y", 20.2, "Sacs cabas");
 
-insert into product(name, description, price, category_name) values ("e", "desc e", 20.2, "Sacs à dos");
-insert into product(name, description, price, category_name) values ("r", "desc r", 20.2, "Sacs à dos");
+insert into product(name, price, category_name) values ("e", 20.2, "Sacs à dos");
+insert into product(name, price, category_name) values ("r", 20.2, "Sacs à dos");
 insert into product(name, price, category_name) values ("w", 20.2, "Sacs à dos");
 
-insert into product(name, description, price, category_name) values ("aa", "desc aa", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("i", "desc i", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("j", "desc j", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("l", "desc l", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("m", "desc m", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("n", "desc n", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("o", "desc o", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("p", "desc p", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("q", "desc q", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("t", "desc t", 20.2, "Trousses");
-insert into product(name, description, price, category_name) values ("v", "desc v", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("aa", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("i", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("j", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("l", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("m", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("n", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("o", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("p", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("q", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("t", 20.2, "Trousses");
+insert into product(name, price, category_name) values ("v", 20.2, "Trousses");
 
-insert into product(name, description, price, category_name) values ("z", "desc z", 20.2, "Sacs de voyage");
+insert into product(name, price, category_name) values ("z", 20.2, "Sacs de voyage");
 
 insert into image(image_uri, product_name) values ("https://i.ibb.co/SJyYTs9/u2.jpg", "u");
 insert into image(image_uri, product_name) values ("https://i.ibb.co/nbqgJsQ/u.jpg", "u");
@@ -160,3 +159,87 @@ insert into image(image_uri, product_name) values ("https://i.ibb.co/8gZ34n4/aa.
 
 insert into image(image_uri, product_name) values ("https://i.ibb.co/jJ8pkWM/z.jpg", "z");
 insert into image(image_uri, product_name) values ("https://i.ibb.co/hdZQ1KX/z2.jpg", "z");
+
+insert into language(language) values ("ENGLISH");
+insert into language(language) values ("FRENCH");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "a", "english description for product a");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "a", "description francaise du produit a");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "b", "english description for product b");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "b", "description francaise du produit b");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "c", "english description for product c");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "c", "description francaise du produit c");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "d", "english description for product d");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "d", "description francaise du produit d");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "e", "english description for product e");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "e", "description francaise du produit e");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "f", "english description for product f");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "f", "description francaise du produit f");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "g", "english description for product g");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "g", "description francaise du produit g");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "h", "english description for product h");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "h", "description francaise du produit h");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "i", "english description for product i");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "i", "description francaise du produit i");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "j", "english description for product j");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "j", "description francaise du produit j");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "k", "english description for product k");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "k", "description francaise du produit k");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "l", "english description for product l");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "l", "description francaise du produit l");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "m", "english description for product m");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "m", "description francaise du produit m");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "n", "english description for product n");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "n", "description francaise du produit n");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "o", "english description for product o");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "o", "description francaise du produit o");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "p", "english description for product p");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "p", "description francaise du produit p");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "q", "english description for product q");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "q", "description francaise du produit q");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "r", "english description for product r");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "r", "description francaise du produit r");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "s", "english description for product s");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "s", "description francaise du produit s");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "t", "english description for product t");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "t", "description francaise du produit t");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "u", "english description for product u");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "u", "description francaise du produit u");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "v", "english description for product v");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "v", "description francaise du produit v");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "w", "english description for product w");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "w", "description francaise du produit w");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "x", "english description for product x");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "x", "description francaise du produit x");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "y", "english description for product y");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "y", "description francaise du produit y");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "z", "english description for product z");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "z", "description francaise du produit z");
+
+insert into translation(language, product, product_description_translation) values ("ENGLISH", "aa", "english description for product aa");
+insert into translation(language, product, product_description_translation) values ("FRENCH", "aa", "description francaise du produit aa");

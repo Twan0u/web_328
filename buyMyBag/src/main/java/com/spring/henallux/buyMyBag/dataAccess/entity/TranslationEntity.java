@@ -8,10 +8,10 @@ public class TranslationEntity {
     @Column
     private int id;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="language", referencedColumnName = "language")
     private LanguageEntity language;
     @ManyToOne
-    @JoinColumn(name="product_description", referencedColumnName="name")
+    @JoinColumn(name="product", referencedColumnName="name")
     private ProductEntity product;
     @Column
     private String product_description_translation;

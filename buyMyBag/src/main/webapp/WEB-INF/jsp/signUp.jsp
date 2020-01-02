@@ -41,6 +41,12 @@ User inscription :
     <form:label path="phone_number">Phone number</form:label>
     <form:input path="phone_number"/>
     <form:errors path="phone_number"/>
+    <form:label path="locality">Locality</form:label>
+    <form:input path="locality"/>
+    <form:errors path="locality"/>
+    <form:label path="postal_code">Postal code</form:label>
+    <form:input path="postal_code"/>
+    <form:errors path="postal_code"/>
     <form:button>Submit</form:button>
 </form:form>
 </body>

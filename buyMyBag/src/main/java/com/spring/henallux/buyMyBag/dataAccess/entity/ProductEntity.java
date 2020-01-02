@@ -1,10 +1,7 @@
 package com.spring.henallux.buyMyBag.dataAccess.entity;
 
-import com.spring.henallux.buyMyBag.model.CategoryModel;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="product")
@@ -13,12 +10,12 @@ public class ProductEntity {
     @Column
     private String name;
     @Column
-    private String description;
-    @Column
     private double price;
     @ManyToOne
     @JoinColumn(name="category_name", referencedColumnName="name")
     private CategoryEntity category;
+    @OneToMany(mappedBy = "product")
+    private Set<TranslationEntity>translations;
 
     public String getName() {
         return name;
@@ -26,14 +23,6 @@ public class ProductEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public double getPrice() {
@@ -50,5 +39,13 @@ public class ProductEntity {
 
     public void setCategory(CategoryEntity category) {
         this.category = category;
+    }
+
+    public Set<TranslationEntity> getTranslations() {
+        return translations;
+    }
+
+    public void setTranslations(Set<TranslationEntity> translations) {
+        this.translations = translations;
     }
 }

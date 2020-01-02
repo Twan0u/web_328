@@ -27,6 +27,7 @@ public class categoryController {
         try {
             model.addAttribute("products", productService.getByCategoryName(name));
             model.addAttribute("categories", categoryService.getAll());
+            model.addAttribute("categoryName",name);
             return "integrated:category";
         } catch (ProductDAOException e) {
             model.addAttribute("errorMessage", e.getMessage());

@@ -2,8 +2,11 @@ server:
   port: 80
   servlet:
     contextPath: /
+  error:
+    whitelabel:
+      enabled: false
 spring:
   datasource:
-    password: Diablerouge98
+    password: BuyMyBag69
     username : root
-    url: jdbc:mysql://localhost:3306/shopping_website_db?serverTimezone=UTC&useLegacyDatetimeCode=false
+    url: jdbc:mysql://buymybag.ck8e4ot53w8k.eu-central-1.rds.amazonaws.com:3306/website_shop_db?serverTimezone=UTC&useLegacyDatetimeCode=false

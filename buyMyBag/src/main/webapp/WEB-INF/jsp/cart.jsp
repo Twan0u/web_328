@@ -18,24 +18,35 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Produit</th>
                         <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Plus</th>
+                        <th>moins</th>
                         <th>Retirer</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Product 1</td>
+                        <th scope="row">Sac Bleu</th>
                         <td>100$</td>
-                        <td><a><i class="far fa-times"></i></a></td>
+                        <td>2</td>
+                        <td>+</td>
+                        <td>-</td>
+                        <td><a><span>X</span></a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sac vert</th>
+                        <td>200$</td>
+                        <td>1</td>
+                        <td>+</td>
+                        <td>-</td>
+                        <td><a><span>X</span></a></td>
                     </tr>
                     <tr class="total">
-                        <th scope="row">5</th>
-                        <td>Total</td>
+                        <th scope="row">Total</th>
                         <td>400$</td>
-                        <td></td>
+                        <td>3</td>
                     </tr>
                     </tbody>
                 </table>

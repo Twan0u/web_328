@@ -1,4 +1,5 @@
 <%@ taglib prefix="tile" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="sec"  uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%--
   Created by IntelliJ IDEA.
@@ -38,12 +39,19 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/about" style="font-family: 'Pacifico', cursive;">A propos</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/login" style="font-family: 'Pacifico', cursive;">Se Connecter</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/signUp" style="font-family: 'Pacifico', cursive;">S'inscrire</a>
-                </li>
+                <sec:authorize access="!isAuthenticated()">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login" style="font-family: 'Pacifico', cursive;">Se Connecter</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/signUp" style="font-family: 'Pacifico', cursive;">S'inscrire</a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" style="font-family: 'Pacifico', cursive;">Current user : ${pageContext.request.userPrincipal.principal.username}</a>
+                    </li>
+                </sec:authorize>
                 <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier</a>
                 </li>

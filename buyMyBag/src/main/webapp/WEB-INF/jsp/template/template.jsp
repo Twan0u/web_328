@@ -36,6 +36,9 @@
                     <a class="nav-link" href="/" style="font-family: 'Pacifico', cursive;">Home</a>
                 </li>
                 <li class="nav-item active">
+                    <a class="nav-link" href="/about" style="font-family: 'Pacifico', cursive;">A propos</a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="/login" style="font-family: 'Pacifico', cursive;">Se Connecter</a>
                 </li>
                 <li class="nav-item active">

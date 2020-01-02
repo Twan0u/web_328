@@ -49,7 +49,7 @@
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" style="font-family: 'Pacifico', cursive;">Current user : ${pageContext.request.userPrincipal.principal.username}</a>
+                        <a class="nav-link" href="/logout" style="font-family: 'Pacifico', cursive;">${pageContext.request.userPrincipal.principal.username}</a>
                     </li>
                 </sec:authorize>
                 <li class="nav-item active">

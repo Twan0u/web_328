@@ -69,6 +69,7 @@ public class signUpController {
         try{
             userService.registerNewUserAccount(newUserModel);
         }
+        // todo gérer les erreurs
         catch(UsernameAlreadyExists usernameAlreadyExists){
             System.out.println("username existe deja");
         }
@@ -76,6 +77,6 @@ public class signUpController {
             System.out.println("email existe deja");
         }
         //redirect vers home ou la derniere page visitée
-        return "integrated:index";
+        return "redirect:/";
     }
 }

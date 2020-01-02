@@ -5,6 +5,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.*;
 
+import static org.springframework.util.ObjectUtils.isEmpty;
+
 public class UserModel implements UserDetails {
     private String username;
     private String password;
@@ -121,10 +123,21 @@ public class UserModel implements UserDetails {
         this.username = username;
     }
 
-    public Set<? extends GrantedAuthority> getAuthorities() {
-        Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority(this.authorities));
-        return authorities;
+    public Collection<GrantedAuthority> getAuthorities()
+    {
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+
+        if (!isEmpty(authorities)) {
+            String[] authoritiesAsArray = authorities.split(",");
+
+            for (String authority : authoritiesAsArray) {
+                if (!isEmpty(authority)) {
+                    grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+                }
+            }
+        }
+
+        return grantedAuthorities;
     }
 
     public void setAuthorities(String authorities) {

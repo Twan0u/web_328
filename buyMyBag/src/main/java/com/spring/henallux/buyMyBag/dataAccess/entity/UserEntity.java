@@ -1,5 +1,7 @@
 package com.spring.henallux.buyMyBag.dataAccess.entity;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -34,12 +36,16 @@ public class UserEntity {
     @Column
     private String authorities;
     @Column
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean non_expired;
     @Column
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean non_locked;
     @Column
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean credentials_non_expired;
     @Column
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean enabled;
 
     public String getPassword() {
@@ -134,32 +140,32 @@ public class UserEntity {
         return non_expired;
     }
 
-    public void setNon_expired(int non_expired) {
-        this.non_expired = non_expired == 1;
+    public void setNon_expired(boolean non_expired) {
+        this.non_expired = non_expired;
     }
 
     public boolean isNon_locked() {
         return non_locked;
     }
 
-    public void setNon_locked(int non_locked) {
-        this.non_locked = non_locked == 1;
+    public void setNon_locked(boolean non_locked) {
+        this.non_locked = non_locked;
     }
 
     public boolean isCredentials_non_expired() {
         return credentials_non_expired;
     }
 
-    public void setCredentials_non_expired(int credentials_non_expired) {
-        this.credentials_non_expired = credentials_non_expired == 1;
+    public void setCredentials_non_expired(boolean credentials_non_expired) {
+        this.credentials_non_expired = credentials_non_expired;
     }
 
     public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(int enabled) {
-        this.enabled = enabled == 1;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getPhone_number() {

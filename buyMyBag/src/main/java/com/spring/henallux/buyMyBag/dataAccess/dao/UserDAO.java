@@ -5,7 +5,6 @@ import com.spring.henallux.buyMyBag.dataAccess.repository.IUserRepository;
 import com.spring.henallux.buyMyBag.model.UserModel;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

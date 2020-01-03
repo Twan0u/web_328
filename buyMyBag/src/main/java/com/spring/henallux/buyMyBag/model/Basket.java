@@ -46,15 +46,6 @@ public class Basket {
         return productsWithQuantity;
     }
 
-    public ProductModel getOne(){
-        for(ProductModel productModel : productsWithQuantity.keySet()){
-            return productModel;
-        }
-        ProductModel productModel = new ProductModel();
-        productModel.setName("fromage");
-        return productModel;
-    }
-
     public Double getTotalPriceOfArticles(){
         Double totalPrice = 0.0;
         for(Map.Entry<ProductModel, Integer> entry : productsWithQuantity.entrySet()){
@@ -64,7 +55,11 @@ public class Basket {
     }
 
     public Integer getNumberOfArticles(){
-        return productsWithQuantity.size();
+        int quantity = 0;
+        for(Map.Entry<ProductModel, Integer>entry : productsWithQuantity.entrySet()){
+            quantity += entry.getValue();
+        }
+        return quantity;
     }
 
     public List<BasketItem>getArticlesAndQtAsBasketItem(){

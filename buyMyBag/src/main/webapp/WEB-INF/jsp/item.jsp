@@ -47,10 +47,10 @@
     </div>
     <form:form id="productOrder"
           method="POST"
-          action="/detail/addToBasket"
-          modelAttribute="basketItem">
+          action="/detail/${product.getName()}/addToBasket"
+          modelAttribute="orderQuantity">
       <form:select path="quantity">
-        <c:forEach begin="1" end="10" var="i" >
+        <c:forEach begin="1" end="10" var="i">
           <option value="${i}">${i}</option>
         </c:forEach>
       </form:select>

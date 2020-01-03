@@ -42,7 +42,6 @@
                         <th scope="row">Total</th>
                         <td>€${basket.getTotalPriceOfArticles()}</td>
                         <td>${basket.getNumberOfArticles()}</td>
-                        <td>${basket.getOne().getName()}</td>
                     </tr>
                     </tbody>
                 </table>

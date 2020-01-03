@@ -38,15 +38,13 @@ public class homePageController  {
         this.promotionService = promotionService;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String home(Model model, @ModelAttribute(value = Constants.BASKET)Basket basket,
                        @ModelAttribute(value = Constants.CHOSEN_LANGUAGE)String chosenLanguage) {
         model.addAttribute("products", productService.getAll());
         model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("promotions", promotionService.getAll());
-        System.out.println("nb articles in basket in home before adding : " + basket.getNumberOfArticles());
         model.addAttribute("basket", basket);
-        System.out.println("nb articles in basket in home after adding : " + basket.getNumberOfArticles());
         model.addAttribute("chosenLanguage", chosenLanguage);
         return "integrated:index";
     }

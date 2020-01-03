@@ -37,7 +37,7 @@
                     <a class="nav-link" href="/" style="font-family: 'Pacifico', cursive;">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/about" style="font-family: 'Pacifico', cursive;">A propos</a>
+                    <a class="nav-link" href="/about" style="font-family: 'Pacifico', cursive;">A Propos</a>
                 </li>
                 <sec:authorize access="!isAuthenticated()">
                     <li class="nav-item active">
@@ -53,7 +53,17 @@
                     </li>
                 </sec:authorize>
                 <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier</a>
+                </li>
+                <li class="nav-item dropdown active" style="font-family: 'Pacifico', cursive;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Language
+                    </a>
+                    <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Français</a>
+                        <a class="dropdown-item" href="#">Anglais</a>
+                    </div>
                 </li>
             </ul>
         </div>

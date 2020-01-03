@@ -47,7 +47,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/" style="font-family: 'Pacifico', cursive;" >Buy My Bag</a>
+        <a class="navbar-brand" href="/" style="font-family: 'Pacifico', cursive; " ><img src="https://i.ibb.co/s6XhbxM/shopping-bag.png" alt="shopping-bag" border="0" style="height: 50px;">Buy My Bag</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -73,7 +73,7 @@
                     </li>
                 </sec:authorize>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier[${basket.getNumberOfArticles()}]</a>
                 </li>
                 <li class="nav-item dropdown active" style="font-family: 'Pacifico', cursive;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

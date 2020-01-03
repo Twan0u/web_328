@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ include file="include/importTags.jsp"%>
-
 <head>
 
   <title>${product.getName()}</title>
@@ -11,7 +10,6 @@
 </head>
 
 <body>
-
   <!-- Page Content -->
   <div class="container" style="margin-top:8%">
 
@@ -32,11 +30,11 @@
       <div class="col-lg-9">
 
         <div class="card mt-4">
-          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+          <img class="card-img-top img-fluid" src="${product.getFirstImage()}" alt="">
           <div class="card-body">
-            <h3 class="card-title">Product Name</h3>
-            <h4>$24.99</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+            <h3 class="card-title">${product.getName()}</h3>
+            <h4>€${product.getPrice()}</h4>
+            <p class="card-text">${product.getDescription(chosenLanguage)}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
           </div>
@@ -47,6 +45,17 @@
       <!-- /.col-lg-9 -->
 
     </div>
+    <form:form id="productOrder"
+          method="POST"
+          action="/detail/addToBasket"
+          modelAttribute="basketItem">
+      <form:select path="quantity">
+        <c:forEach begin="1" end="10" var="i" >
+          <option value="${i}">${i}</option>
+        </c:forEach>
+      </form:select>
+      <form:button>Add to my basket</form:button>
+    </form:form>
 
   </div>
   <!-- /.container -->

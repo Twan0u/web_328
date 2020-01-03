@@ -2,7 +2,6 @@ package com.spring.henallux.buyMyBag.controller;
 
 import com.spring.henallux.buyMyBag.constants.Constants;
 import com.spring.henallux.buyMyBag.model.Basket;
-import com.spring.henallux.buyMyBag.model.ProductModel;
 import com.spring.henallux.buyMyBag.service.CategoryService;
 import com.spring.henallux.buyMyBag.service.ProductService;
 import com.spring.henallux.buyMyBag.service.PromotionService;

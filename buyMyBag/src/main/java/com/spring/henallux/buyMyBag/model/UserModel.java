@@ -27,7 +27,6 @@ public class UserModel implements UserDetails {
 
     public UserModel(){ }
 
-
     public String getPassword() {
         return password;
     }

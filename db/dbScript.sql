@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS clientorder
 	id int auto_increment primary key AUTO_INCREMENT,
 	creation_date datetime not null,
 	user_login varchar(100) not null,
+    is_payed tinyint(1) not null,
 	FOREIGN KEY (user_login) REFERENCES user(username)
 )ENGINE = InnoDB;
 
@@ -246,6 +247,7 @@ insert into translation(language, product, product_description_translation) valu
 insert into translation(language, product, product_description_translation) values ("FRENCH", "aa", "description francaise du produit aa");
 
 insert into promotion(eventname, event_start_date, event_end_date, image_url)
-	values ("reduction_noel", "2019-12-01", "2019-12-30", "https://i.ibb.co/pR1ZL3K/reduction-Noel.png");
+	values ("reduction_noel", "2019-12-01", "2019-12-30", "https://i.ibb.co/tDdP8K4/snowman-Reduction.png");
 insert into promotion(eventname, event_start_date, event_end_date, min_order_price_for_application, image_url)
 	values ("reduction_janvier", "2020-01-01", "2020-01-31", 100.0, "https://i.ibb.co/SJyYQhN/reduction-Janvier.png");
+    

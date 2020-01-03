@@ -18,6 +18,8 @@ public class OrderLineService {
     }
 
     public void saveOrderLines(ArrayList<OrderLineModel> orderLines){
-        orderLineDAO.saveOrderLines(orderLines);
+        for(OrderLineModel orderLineModel : orderLines){
+            orderLineDAO.saveOrderLine(orderLineModel);
+        }
     }
 }

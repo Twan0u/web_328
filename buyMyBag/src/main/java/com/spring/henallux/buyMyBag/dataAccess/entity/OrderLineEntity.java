@@ -3,7 +3,7 @@ package com.spring.henallux.buyMyBag.dataAccess.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="clientorder")
+@Table(name="orderline")
 public class OrderLineEntity {
     @Id
     @Column
@@ -14,12 +14,12 @@ public class OrderLineEntity {
     @Column
     private double price;
 
-    @ManyToOne
     @JoinColumn(name = "product_name", referencedColumnName = "name")
+    @ManyToOne
     private ProductEntity product_name;
 
+    @JoinColumn(name = "orderid", referencedColumnName = "id")
     @ManyToOne
-    @JoinColumn(name = "order_ref", referencedColumnName = "id")
     private OrderEntity order_id;
 
     public int getId() {

@@ -7,6 +7,8 @@ import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class OrderDAO implements IOrderDataAccess{
 
@@ -20,6 +22,7 @@ public class OrderDAO implements IOrderDataAccess{
     }
 
     @Override
+    @Transactional
     public int saveOrder(OrderModel orderModel) {
         OrderEntity orderEntity = mapper.map(orderModel, OrderEntity.class);
         return orderRepository.save(orderEntity).getId();

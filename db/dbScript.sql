@@ -63,9 +63,9 @@ CREATE TABLE IF NOT EXISTS orderline (
 	id bigint primary key AUTO_INCREMENT,
 	quantity int not null CHECK (quantity > 0),
 	price double not null CHECK (price > 0),
-	order_ref int not null,
+    orderid int not null,
 	product_name varchar(50) not null,
-    foreign key(order_ref) references clientorder(id),
+    foreign key(orderid) references clientorder(id),
     foreign key(product_name) references product(name)
 )engine=InnoDB;
 

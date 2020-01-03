@@ -7,8 +7,7 @@ import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.transaction.Transactional;
 
 @Service
 public class OrderLineDAO implements IOrderLineDataAccess {
@@ -22,15 +21,9 @@ public class OrderLineDAO implements IOrderLineDataAccess {
         this.mapper = new DozerBeanMapper();
     }
 
+    @Transactional
     @Override
-    public void saveOrderLines(List<OrderLineModel> orderLines) {
-        List<OrderLineEntity>orderLineEntities = new ArrayList<>();
-        for(OrderLineModel orderLineModel : orderLines){
-            System.out.println(orderLineModel.getProduct_name().getName());
-            orderLineEntities.add(mapper.map(orderLineModel, OrderLineEntity.class));
-        }
-        for(OrderLineEntity orderLineEntity : orderLineEntities){
-            orderLineRepository.save(orderLineEntity);
-        }
+    public void saveOrderLine(OrderLineModel orderLine) {
+        orderLineRepository.save(mapper.map(orderLine, OrderLineEntity.class));
     }
 }

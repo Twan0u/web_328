@@ -54,6 +54,7 @@ public class checkoutController {
                 orderLines.add(new OrderLineModel(0, entry.getValue(), entry.getKey().getPrice(), orderModel, entry.getKey()));
             }
             orderLineService.saveOrderLines(orderLines);
+            basket.emptyBasket();
         }
         catch (UsernameNotFoundException e){
             e.printStackTrace();

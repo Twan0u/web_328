@@ -2,6 +2,7 @@ package com.spring.henallux.buyMyBag.controller;
 
 import com.spring.henallux.buyMyBag.constants.Constants;
 import com.spring.henallux.buyMyBag.model.Basket;
+import com.spring.henallux.buyMyBag.model.ChosenLanguage;
 import com.spring.henallux.buyMyBag.service.CategoryService;
 import com.spring.henallux.buyMyBag.service.ProductService;
 import com.spring.henallux.buyMyBag.service.PromotionService;
@@ -26,8 +27,9 @@ public class homePageController  {
         return new Basket();
     }
     @ModelAttribute(Constants.CHOSEN_LANGUAGE)
-    public String chosenLanguage(){
-        return Constants.FRENCH;
+    public ChosenLanguage chosenLanguage(){
+        System.out.println("init chosen language");
+        return new ChosenLanguage(Constants.FRENCH);
     }
 
     @Autowired
@@ -39,12 +41,12 @@ public class homePageController  {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model, @ModelAttribute(value = Constants.BASKET)Basket basket,
-                       @ModelAttribute(value = Constants.CHOSEN_LANGUAGE)String chosenLanguage) {
+                       @ModelAttribute(value = Constants.CHOSEN_LANGUAGE)ChosenLanguage chosenLanguage) {
         model.addAttribute("products", productService.getAll());
         model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("promotions", promotionService.getAll());
         model.addAttribute("basket", basket);
-        model.addAttribute("chosenLanguage", chosenLanguage);
+        model.addAttribute("chosenLanguage", chosenLanguage.getLanguage());
         return "integrated:index";
     }
 }

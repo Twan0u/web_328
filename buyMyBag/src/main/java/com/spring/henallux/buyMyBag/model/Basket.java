@@ -70,6 +70,10 @@ public class Basket {
         return items;
     }
 
+    public void emptyBasket(){
+        productsWithQuantity.clear();
+    }
+
     private ProductModel getProductOfHashMap(ProductModel productModelToFind){
         for(ProductModel productModel : productsWithQuantity.keySet()){
             if(productModel.getName().equals(productModelToFind.getName()))

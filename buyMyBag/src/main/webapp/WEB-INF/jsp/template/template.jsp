@@ -28,13 +28,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Déconecter</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Déconnecter</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Êtes-vous certains de vouloir vous déconnecter ?
+                Êtes-vous certain de vouloir vous déconnecter ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">non</button>
@@ -81,8 +81,8 @@
                     </a>
                     <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Français</a>
-                        <a class="dropdown-item" href="#">Anglais</a>
+                        <a class="dropdown-item" href="/language/fr">Français</a>
+                        <a class="dropdown-item" href="/language/en">Anglais</a>
                     </div>
                 </li>
             </ul>

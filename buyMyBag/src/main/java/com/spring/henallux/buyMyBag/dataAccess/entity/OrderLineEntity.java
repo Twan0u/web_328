@@ -7,17 +7,20 @@ import javax.persistence.*;
 public class OrderLineEntity {
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private int quantity;
     @Column
     private double price;
-    @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private OrderEntity order_id;
+
     @ManyToOne
     @JoinColumn(name = "product_name", referencedColumnName = "name")
     private ProductEntity product_name;
+
+    @ManyToOne
+    @JoinColumn(name = "order_ref", referencedColumnName = "id")
+    private OrderEntity order_id;
 
     public int getId() {
         return id;

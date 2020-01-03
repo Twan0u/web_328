@@ -49,7 +49,7 @@ public class Basket {
     public Double getTotalPriceOfArticles(){
         Double totalPrice = 0.0;
         for(Map.Entry<ProductModel, Integer> entry : productsWithQuantity.entrySet()){
-            totalPrice += entry.getValue();
+            totalPrice += entry.getKey().getPrice() *  entry.getValue();
         }
         return totalPrice;
     }

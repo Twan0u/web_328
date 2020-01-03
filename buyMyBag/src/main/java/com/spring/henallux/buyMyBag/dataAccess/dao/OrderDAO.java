@@ -22,7 +22,6 @@ public class OrderDAO implements IOrderDataAccess{
     @Override
     public int saveOrder(OrderModel orderModel) {
         OrderEntity orderEntity = mapper.map(orderModel, OrderEntity.class);
-        OrderEntity orderEntitySaved = orderRepository.save(orderEntity);
-        return orderEntitySaved.getId();
+        return orderRepository.save(orderEntity).getId();
     }
 }

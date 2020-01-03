@@ -50,7 +50,9 @@
             <!--Footer-->
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary">Checkout</button>
+                <a href="/checkout">
+                    <button class="btn btn-primary">Checkout</button>
+                </a>
             </div>
         </div>
     </div>

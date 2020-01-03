@@ -26,6 +26,7 @@ public class OrderLineDAO implements IOrderLineDataAccess {
     public void saveOrderLines(List<OrderLineModel> orderLines) {
         List<OrderLineEntity>orderLineEntities = new ArrayList<>();
         for(OrderLineModel orderLineModel : orderLines){
+            System.out.println(orderLineModel.getProduct_name().getName());
             orderLineEntities.add(mapper.map(orderLineModel, OrderLineEntity.class));
         }
         for(OrderLineEntity orderLineEntity : orderLineEntities){

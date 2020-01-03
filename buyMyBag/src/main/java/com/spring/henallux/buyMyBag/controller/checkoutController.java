@@ -1,9 +1,7 @@
 package com.spring.henallux.buyMyBag.controller;
 
 import com.spring.henallux.buyMyBag.constants.Constants;
-import com.spring.henallux.buyMyBag.dataAccess.dao.OrderLineDAO;
 import com.spring.henallux.buyMyBag.model.*;
-import com.spring.henallux.buyMyBag.service.OrderAndOrderLineService;
 import com.spring.henallux.buyMyBag.service.OrderLineService;
 import com.spring.henallux.buyMyBag.service.OrderService;
 import com.spring.henallux.buyMyBag.service.UserDetailsServiceImplementation;

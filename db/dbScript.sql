@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS user(
 
 CREATE TABLE IF NOT EXISTS clientorder
 (
-	id int auto_increment primary key AUTO_INCREMENT,
+	id int auto_increment primary key,
 	creation_date datetime not null,
 	user_login varchar(100) not null,
     is_payed tinyint(1) not null,
@@ -63,9 +63,9 @@ CREATE TABLE IF NOT EXISTS orderline (
 	id bigint primary key AUTO_INCREMENT,
 	quantity int not null CHECK (quantity > 0),
 	price double not null CHECK (price > 0),
-	order_id int not null,
+	order_ref int not null,
 	product_name varchar(50) not null,
-    foreign key(order_id) references clientorder(id),
+    foreign key(order_ref) references clientorder(id),
     foreign key(product_name) references product(name)
 )engine=InnoDB;
 

@@ -10,6 +10,7 @@ import java.util.Date;
 public class OrderEntity {
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     @Type(type = "org.hibernate.type.NumericBooleanType")

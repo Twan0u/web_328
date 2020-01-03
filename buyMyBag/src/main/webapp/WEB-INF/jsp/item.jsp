@@ -35,8 +35,21 @@
             <h3 class="card-title">${product.getName()}</h3>
             <h4>€${product.getPrice()}</h4>
             <p class="card-text">${product.getDescription(chosenLanguage)}</p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-            4.0 stars
+            <form:form id="productOrder"
+                       method="POST"
+                       action="/detail/${product.getName()}/addToBasket"
+                       modelAttribute="orderQuantity">
+            <div class="input-group mb-3">
+              <form:select path="quantity" class="custom-select">
+                <c:forEach begin="1" end="10" var="i">
+                  <option value="${i}">${i}</option>
+                </c:forEach>
+              </form:select>
+              <div class="input-group-append">
+                <form:button class="btn btn-outline-secondary">Add to my basket</form:button>
+              </div>
+            </div>
+            </form:form>
           </div>
         </div>
         <!-- /.card -->

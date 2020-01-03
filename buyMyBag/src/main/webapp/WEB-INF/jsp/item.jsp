@@ -45,17 +45,7 @@
       <!-- /.col-lg-9 -->
 
     </div>
-    <form:form id="productOrder"
-          method="POST"
-          action="/detail/${product.getName()}/addToBasket"
-          modelAttribute="orderQuantity">
-      <form:select path="quantity">
-        <c:forEach begin="1" end="10" var="i">
-          <option value="${i}">${i}</option>
-        </c:forEach>
-      </form:select>
-      <form:button>Add to my basket</form:button>
-    </form:form>
+
 
   </div>
   <!-- /.container -->

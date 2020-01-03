@@ -24,10 +24,30 @@
 </head>
 <body>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Déconecter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Êtes-vous certains de vouloir vous déconnecter ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">non</button>
+                <a href="/logout"><button type="button" class="btn btn-primary">oui</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#" style="font-family: 'Pacifico', cursive;" >Buy My Bag</a>
+        <a class="navbar-brand" href="/" style="font-family: 'Pacifico', cursive;" >Buy My Bag</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,7 +69,7 @@
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/logout" style="font-family: 'Pacifico', cursive;">${pageContext.request.userPrincipal.principal.username}</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="font-family: 'Pacifico', cursive;">${pageContext.request.userPrincipal.principal.username}</a>
                     </li>
                 </sec:authorize>
                 <li class="nav-item active">

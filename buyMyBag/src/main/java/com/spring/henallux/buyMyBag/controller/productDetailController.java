@@ -1,17 +1,21 @@
 package com.spring.henallux.buyMyBag.controller;
 
+import com.spring.henallux.buyMyBag.constants.Constants;
+import com.spring.henallux.buyMyBag.model.Basket;
+import com.spring.henallux.buyMyBag.model.BasketItem;
+import com.spring.henallux.buyMyBag.model.ProductModel;
+import com.spring.henallux.buyMyBag.model.QuantityOrder;
 import com.spring.henallux.buyMyBag.service.CategoryService;
 import com.spring.henallux.buyMyBag.exception.ProductDAOException;
 import com.spring.henallux.buyMyBag.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value="/detail")
+@SessionAttributes({Constants.BASKET, Constants.CHOSEN_LANGUAGE})
 public class productDetailController {
 
     private final CategoryService categoryService;
@@ -24,15 +28,31 @@ public class productDetailController {
     }
 
     @RequestMapping(value="/{name}", method=RequestMethod.GET)
-    public String productDetails(Model model, @PathVariable("name") String name){
+    public String productDetails(Model model, @PathVariable("name") String name, @ModelAttribute(value = Constants.CHOSEN_LANGUAGE)String language){
+        ProductModel product;
         try {
-            model.addAttribute("product", productService.getByName(name));
+            product = productService.getByName(name);
         } catch (ProductDAOException e) {
             model.addAttribute("errorMessage", e.getMessage());
             return "integrated:error";
         }
+        model.addAttribute("product", product);
         model.addAttribute("categories", categoryService.getAll());
+        model.addAttribute("orderQuantity", new QuantityOrder());
+        model.addAttribute("chosenLanguage", language);
         return "integrated:item";
     }
 
+    @RequestMapping(value="/{name}/addToBasket", method = RequestMethod.POST)
+    public String addProductToBasket(@PathVariable("name")String name , @ModelAttribute(value = "orderQuantity")QuantityOrder quantityOrder, @ModelAttribute(value = Constants.BASKET) Basket basket, Model model){
+        try {
+            ProductModel product;
+            product = productService.getByName(name);
+            basket.addProduct(product, quantityOrder.getQuantity());
+            return "redirect:/";
+        } catch (ProductDAOException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "integrated:error";
+        }
+    }
 }

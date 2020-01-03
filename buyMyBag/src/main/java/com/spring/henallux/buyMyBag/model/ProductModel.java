@@ -39,6 +39,9 @@ public class ProductModel {
     }
 
     public String getDescription(String language){
+        if(language.length()==0)
+            language = Constants.FRENCH;
+
         for(TranslationModel translation : translations){
             if(translation.getLanguage().getLanguage().equals(language))
                 return translation.getProductDescriptionTranslation();

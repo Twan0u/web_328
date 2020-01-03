@@ -45,7 +45,7 @@ body{font-family: 'Raleway', sans-serif;}
                     <a href="<c:url value='/detail/${product.getName()}'/>">${product.getName()}</a>
                   </h4>
                   <h5>${product.getPrice()}€</h5>
-                  <p class="card-text">${product.getDescription("FRENCH")}</p>
+                  <p class="card-text">${product.getDescription(chosenLanguage)}</p>
                 </div>
               </div>
             </div>

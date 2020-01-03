@@ -22,31 +22,26 @@
                         <th>Prix</th>
                         <th>Quantité</th>
                         <th>Plus</th>
-                        <th>moins</th>
+                        <th>Moins</th>
                         <th>Retirer</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">Sac Bleu</th>
-                        <td>100$</td>
-                        <td>2</td>
-                        <td>+</td>
-                        <td>-</td>
-                        <td><a><span>X</span></a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Sac vert</th>
-                        <td>200$</td>
-                        <td>1</td>
-                        <td>+</td>
-                        <td>-</td>
-                        <td><a><span>X</span></a></td>
-                    </tr>
+                    <c:forEach items="${basket.getArticlesAndQtAsBasketItem()}" var="item">
+                        <tr>
+                            <th scope="row">${item.getProduct().getName()}</th>
+                            <td>${item.getProduct().getPrice()}€</td>
+                            <td>${item.getQuantity()}</td>
+                            <td>+</td>
+                            <td>-</td>
+                            <td><a><span>X</span></a></td>
+                        </tr>
+                    </c:forEach>
+
                     <tr class="total">
                         <th scope="row">Total</th>
-                        <td>400$</td>
-                        <td>3</td>
+                        <td>€${basket.getTotalPriceOfArticles()}</td>
+                        <td>${basket.getNumberOfArticles()}</td>
                     </tr>
                     </tbody>
                 </table>

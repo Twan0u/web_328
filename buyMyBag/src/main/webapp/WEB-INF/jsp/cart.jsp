@@ -44,7 +44,7 @@
 
             <!--Footer-->
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal"><spring:message code="close"/></button>
                 <a href="/checkout">
                     <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
                     <script>paypal.Buttons().render('body');</script>

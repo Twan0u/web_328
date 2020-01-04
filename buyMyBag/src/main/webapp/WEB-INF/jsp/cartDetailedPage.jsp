@@ -4,12 +4,12 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>Produit</th>
-        <th>Prix</th>
-        <th>Quantité</th>
-        <th>Plus</th>
-        <th>Moins</th>
-        <th>Retirer</th>
+        <th><spring:message code="product"/></th>
+        <th><spring:message code="price"/></th>
+        <th><spring:message code="quantity"/></th>
+        <th><spring:message code="more"/></th>
+        <th><spring:message code="less"/></th>
+        <th><spring:message code="remove"/></th>
     </tr>
     </thead>
     <tbody>

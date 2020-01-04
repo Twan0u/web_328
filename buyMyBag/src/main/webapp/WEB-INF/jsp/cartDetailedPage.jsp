@@ -34,5 +34,25 @@
 <div class="modal-footer">
     <a href="/checkout">
         <button class="btn btn-primary"><spring:message code="checkout"/></button>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+        <script>paypal.Buttons().render('body');</script>
+
+        <form id="paypal_form_one_time" target="_top" class="paypal-form" method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr%22%3E
+    <input type="hidden" value="_xclick" name="cmd">
+
+        <input type="hidden" value="${basket.getTotalPriceOfArticles()}" name="amount">
+
+        <input type="hidden" value="sb-vzrq1832953@business.example.com" name="business">
+
+        <input type="hidden" value="EUR" name="currency_code">
+        <input type="hidden" value="1" name="rm">
+        <input type="hidden" value="feature_item_id=1&amp;deal_item_id=0" name="custom">
+        <input type="hidden" value="http://localhost/" name="return">
+
+        <input type="hidden" value="??" name="user_email">
+
+        <input type="hidden" value="http://xxxx/xx/xxx/paypal_cancel" name="cancel_return">
+        <input type="hidden" value="http://xxx/xx/paxxypal_ipn" name="notify_url">
+        </form>
     </a>
 </div>

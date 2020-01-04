@@ -8,7 +8,7 @@
         <div class="modal-content">
             <!--Header-->
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Votre Panier</h4>
+                <h4 class="modal-title" id="myModalLabel"><spring:message code="yourBasket"/></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">X</span>
                 </button>
@@ -19,9 +19,9 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Produit</th>
-                        <th>Prix</th>
-                        <th>Quantité</th>
+                        <th><spring:message code="product"/></th>
+                        <th><spring:message code="price"/></th>
+                        <th><spring:message code="quantity"/></th>
                     </tr>
                     </thead>
                     <tbody>

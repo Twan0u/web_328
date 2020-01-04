@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class basketDetailsController {
     @RequestMapping(method = RequestMethod.GET)
     public String basketDetails(Model model, @ModelAttribute(value = Constants.BASKET) Basket basket){
-        model.addAttribute(basket);
+        model.addAttribute("basket", basket);
         return "integrated:cartDetailedPage";
     }
 }

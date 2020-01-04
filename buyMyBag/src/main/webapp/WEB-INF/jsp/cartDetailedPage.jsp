@@ -33,6 +33,6 @@
 </table>
 <div class="modal-footer">
     <a href="/checkout">
-        <button class="btn btn-primary">Checkout</button>
+        <button class="btn btn-primary"><spring:message code="checkout"/></button>
     </a>
 </div>

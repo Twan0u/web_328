@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value="/detail")
-@SessionAttributes({Constants.BASKET, Constants.CHOSEN_LANGUAGE})
+@SessionAttributes({Constants.BASKET})
 public class productDetailController {
 
     private final CategoryService categoryService;
@@ -27,7 +27,8 @@ public class productDetailController {
     }
 
     @RequestMapping(value="/{name}", method=RequestMethod.GET)
-    public String productDetails(Model model, @PathVariable("name") String name, @ModelAttribute(value = Constants.CHOSEN_LANGUAGE)String language){
+    public String productDetails(Model model, @PathVariable("name") String name,
+                                 @ModelAttribute(value = Constants.BASKET)Basket basket){
         ProductModel product;
         try {
             product = productService.getByName(name);
@@ -38,7 +39,7 @@ public class productDetailController {
         model.addAttribute("product", product);
         model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("orderQuantity", new QuantityOrder());
-        model.addAttribute("chosenLanguage", language);
+        model.addAttribute("basket", basket);
         return "integrated:item";
     }
 

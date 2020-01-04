@@ -79,12 +79,11 @@ body{font-family: 'Raleway', sans-serif;}
                     <a href="<c:url value='/detail/${product.getName()}'/>">${product.getName()}</a>
                   </h4>
                   <h5>${product.getPrice()}€</h5>
-                  <p class="card-text">${product.getDescription(chosenLanguage)}</p>
+                  <p class="card-text">${product.getDescription(pageContext.response.locale)}</p>
                 </div>
               </div>
             </div>
           </c:forEach>
-
 
 
         </div>

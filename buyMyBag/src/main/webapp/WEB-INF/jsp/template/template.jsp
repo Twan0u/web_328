@@ -1,6 +1,8 @@
 <%@ taglib prefix="tile" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="sec"  uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: surqu
@@ -54,38 +56,44 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/" style="font-family: 'Pacifico', cursive;">Home</a>
+                    <a class="nav-link" href="/" style="font-family: 'Pacifico', cursive;"><spring:message code="home"/></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/about" style="font-family: 'Pacifico', cursive;">A Propos</a>
+                    <a class="nav-link" href="/about" style="font-family: 'Pacifico', cursive;"><spring:message code="about"/></a>
                 </li>
                 <sec:authorize access="!isAuthenticated()">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/login" style="font-family: 'Pacifico', cursive;">Se Connecter</a>
+                        <a class="nav-link" href="/login" style="font-family: 'Pacifico', cursive;"><spring:message code="login"/></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/signUp" style="font-family: 'Pacifico', cursive;">S'inscrire</a>
+                        <a class="nav-link" href="/signUp" style="font-family: 'Pacifico', cursive;"><spring:message code="signUp"/></a>
                     </li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item active">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="font-family: 'Pacifico', cursive;">${pageContext.request.userPrincipal.principal.username}</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="font-family: 'Pacifico', cursive;"><spring:message code="ConnectedAs"/> ${pageContext.request.userPrincipal.principal.username}</a>
                     </li>
                 </sec:authorize>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier[${basket.getNumberOfArticles()}]</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;"><spring:message code="myBasket"/>[${basket.getNumberOfArticles()}]</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/basketDetails" style="font-family: 'Pacifico', cursive;">Détails du panier</a>
+                    <a class="nav-link" href="/basketDetails" style="font-family: 'Pacifico', cursive;"><spring:message code="basketDetails"/></a>
                 </li>
                 <li class="nav-item dropdown active" style="font-family: 'Pacifico', cursive;">
+                    <spring:url var="localeFr" value="">
+                        <spring:param name="locale" value="fr"/>
+                    </spring:url>
+                    <spring:url var="localeEn" value="">
+                        <spring:param name="locale" value="en"/>
+                    </spring:url>
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Language
+                        <spring:message code="language"/>
                     </a>
                     <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/language/fr">Français</a>
-                        <a class="dropdown-item" href="/language/en">Anglais</a>
+                        <a class="dropdown-item" href="${localeFr}"><spring:message code="french"/></a>
+                        <a class="dropdown-item" href="${localeEn}"><spring:message code="english"/></a>
                     </div>
                 </li>
             </ul>

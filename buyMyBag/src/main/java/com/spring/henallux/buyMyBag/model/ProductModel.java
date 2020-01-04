@@ -38,8 +38,12 @@ public class ProductModel {
         return translations;
     }
 
-    public String getDescription(String language){
-        if(language.length()==0)
+    public String getDescription(String languageCode){
+        String language;
+
+        if(languageCode.equals("en"))
+            language = Constants.ENGLISH;
+        else
             language = Constants.FRENCH;
 
         for(TranslationModel translation : translations){

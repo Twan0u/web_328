@@ -37,9 +37,6 @@ public class signUpController {
     public String submitUserInscription(@ModelAttribute(value="newUser")@Valid UserDTO newUser, final BindingResult errors){
         if(errors.hasErrors()){
             System.out.println("has errors");
-            System.out.println(errors.getPropertyEditorRegistry());
-            System.out.println(errors.getTarget());
-            System.out.println(errors.getModel());
             return "integrated:signUp";
         }
         if(!newUser.getPassword().equals(newUser.getValidationPassword())){

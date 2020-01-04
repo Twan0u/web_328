@@ -36,12 +36,10 @@
         <button class="btn btn-primary"><spring:message code="checkout"/></button>
 
         <form id="paypal_form_one_time" target="_top" class="paypal-form" method="post" action="https://www.paypal.com/cgi-bin/webscr">
-            <input type="hidden" value="sb-47ertw823112@business.example.com" name="business">
-            <input type="hidden" value="i2I^ZVh6" name="password">
-            <input type="hidden" value="XQFKS7A4QYXA6" name="cert_id">
-
-
-            <input type="hidden" value="_xclick" name="cmd">
+            <input name="business" type="hidden" value="buyMyBag@business.com" name="business"/>
+            <input name="password" type="hidden" value="YourStrong(!)"/>
+            <input name="cert_id" type="hidden" value="UK5X979PVSZ76"/>
+            <input name="cmd" type="hidden" value="_xclick"/>
 
             <input type="hidden" value="${basket.getTotalPriceOfArticles()}" name="amount">
 
@@ -52,7 +50,6 @@
             <input type="image" name="submit"
                    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
                    alt="PayPal - The safer, easier way to pay online">
-
         </form>
     </a>
 </div>

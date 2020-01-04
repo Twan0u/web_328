@@ -22,6 +22,9 @@
                         <th>Produit</th>
                         <th>Prix</th>
                         <th>Quantité</th>
+                        <th>Plus</th>
+                        <th>Moins</th>
+                        <th>Retirer</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,6 +33,9 @@
                             <th scope="row">${item.getKey().getName()}</th>
                             <td>${item.getKey().getPrice()}€</td>
                             <td>${item.getValue()}</td>
+                            <td><a href="/addOne/${item.getKey().getName()}"><button>+</button></a></td>
+                            <td><a href="/removeOne/${item.getKey().getName()}"><button>-</button></a></td>
+                            <td><a href="/removeItem/${item.getKey().getName()}"><button>X</button></a></td>
                         </tr>
                     </c:forEach>
 

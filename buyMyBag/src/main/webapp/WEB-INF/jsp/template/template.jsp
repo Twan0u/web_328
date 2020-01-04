@@ -75,6 +75,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCart"style="font-family: 'Pacifico', cursive;">Mon Panier[${basket.getNumberOfArticles()}]</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/basketDetails" style="font-family: 'Pacifico', cursive;">Détails du panier</a>
+                </li>
                 <li class="nav-item dropdown active" style="font-family: 'Pacifico', cursive;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Language

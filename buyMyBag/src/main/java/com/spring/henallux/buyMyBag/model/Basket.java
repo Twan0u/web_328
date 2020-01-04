@@ -51,7 +51,7 @@ public class Basket {
         for(Map.Entry<ProductModel, Integer> entry : productsWithQuantity.entrySet()){
             totalPrice += entry.getKey().getPrice() *  entry.getValue();
         }
-        return totalPrice;
+        return Math.round(totalPrice * 100.0) / 100.0;
     }
 
     public Integer getNumberOfArticles(){
@@ -60,14 +60,6 @@ public class Basket {
             quantity += entry.getValue();
         }
         return quantity;
-    }
-
-    public List<BasketItem>getArticlesAndQtAsBasketItem(){
-        List<BasketItem>items = new ArrayList<>();
-        for(Map.Entry<ProductModel, Integer> entry : productsWithQuantity.entrySet()){
-            items.add(new BasketItem(entry.getKey(), entry.getValue().intValue()));
-        }
-        return items;
     }
 
     public void emptyBasket(){
@@ -80,5 +72,29 @@ public class Basket {
                 return productModel;
         }
         return null;
+    }
+
+    public void addOne(String productName){
+        for(Map.Entry<ProductModel, Integer>productWithQt : productsWithQuantity.entrySet()){
+            if(productWithQt.getKey().getName().equals(productName)){
+                productsWithQuantity.put(productWithQt.getKey(), productWithQt.getValue()+1);
+            }
+        }
+    }
+
+    public void removeOne(String productName){
+        for(Map.Entry<ProductModel, Integer>productWithQt : productsWithQuantity.entrySet()){
+            if(productWithQt.getKey().getName().equals(productName)){
+                productsWithQuantity.put(productWithQt.getKey(), productWithQt.getValue()-1);
+            }
+        }
+    }
+
+    public void removeProduct(String productName){
+        for(Map.Entry<ProductModel, Integer>productWithQt : productsWithQuantity.entrySet()){
+            if(productWithQt.getKey().getName().equals(productName)){
+                productsWithQuantity.remove(productWithQt.getKey());
+            }
+        }
     }
 }

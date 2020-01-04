@@ -32,27 +32,27 @@
     </tbody>
 </table>
 <div class="modal-footer">
-    <a href="/checkout">
+    <a>
         <button class="btn btn-primary"><spring:message code="checkout"/></button>
-        <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
-        <script>paypal.Buttons().render('body');</script>
 
-        <form id="paypal_form_one_time" target="_top" class="paypal-form" method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr%22%3E
-    <input type="hidden" value="_xclick" name="cmd">
+        <form id="paypal_form_one_time" target="_top" class="paypal-form" method="post" action="https://www.paypal.com/cgi-bin/webscr">
+            <input type="hidden" value="sb-47ertw823112@business.example.com" name="business">
+            <input type="hidden" value="i2I^ZVh6" name="password">
+            <input type="hidden" value="XQFKS7A4QYXA6" name="cert_id">
 
-        <input type="hidden" value="${basket.getTotalPriceOfArticles()}" name="amount">
 
-        <input type="hidden" value="sb-vzrq1832953@business.example.com" name="business">
+            <input type="hidden" value="_xclick" name="cmd">
 
-        <input type="hidden" value="EUR" name="currency_code">
-        <input type="hidden" value="1" name="rm">
-        <input type="hidden" value="feature_item_id=1&amp;deal_item_id=0" name="custom">
-        <input type="hidden" value="http://localhost/" name="return">
+            <input type="hidden" value="${basket.getTotalPriceOfArticles()}" name="amount">
 
-        <input type="hidden" value="??" name="user_email">
+            <input type="hidden" value="EUR" name="currency_code">
 
-        <input type="hidden" value="http://xxxx/xx/xxx/paypal_cancel" name="cancel_return">
-        <input type="hidden" value="http://xxx/xx/paxxypal_ipn" name="notify_url">
+            <input type="hidden" value="localhost:/" name="cancel_return">
+            <input type="hidden" value="http://localhost/detail/d" name="notify_url">
+            <input type="image" name="submit"
+                   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                   alt="PayPal - The safer, easier way to pay online">
+
         </form>
     </a>
 </div>

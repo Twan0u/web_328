@@ -86,6 +86,8 @@ public class Basket {
         for(Map.Entry<ProductModel, Integer>productWithQt : productsWithQuantity.entrySet()){
             if(productWithQt.getKey().getName().equals(productName)){
                 productsWithQuantity.put(productWithQt.getKey(), productWithQt.getValue()-1);
+                if(productWithQt.getValue() == 0)
+                    productsWithQuantity.remove(productWithQt.getKey());
             }
         }
     }

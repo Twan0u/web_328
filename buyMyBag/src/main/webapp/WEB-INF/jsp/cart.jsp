@@ -47,6 +47,8 @@
                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
                 <a href="/checkout">
                     <button class="btn btn-primary">Checkout</button>
+                    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+                    <script>paypal.Buttons().render('body');</script>
                 </a>
             </div>
         </div>

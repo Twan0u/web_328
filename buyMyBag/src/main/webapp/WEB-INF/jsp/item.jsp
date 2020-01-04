@@ -34,7 +34,7 @@
           <div class="card-body">
             <h3 class="card-title">${product.getName()}</h3>
             <h4>€${product.getPrice()}</h4>
-            <p class="card-text">${product.getDescription(chosenLanguage)}</p>
+            <p class="card-text">${product.getDescription(pageContext.response.locale)}</p>
             <form:form id="productOrder"
                        method="POST"
                        action="/detail/${product.getName()}/addToBasket"
@@ -46,7 +46,7 @@
                 </c:forEach>
               </form:select>
               <div class="input-group-append">
-                <form:button class="btn btn-outline-secondary">Add to my basket</form:button>
+                <form:button class="btn btn-outline-secondary"><spring:message code="addToMyBasket"/></form:button>
               </div>
             </div>
             </form:form>

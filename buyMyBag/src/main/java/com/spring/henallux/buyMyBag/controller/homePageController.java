@@ -2,20 +2,16 @@ package com.spring.henallux.buyMyBag.controller;
 
 import com.spring.henallux.buyMyBag.constants.Constants;
 import com.spring.henallux.buyMyBag.model.Basket;
-import com.spring.henallux.buyMyBag.model.ChosenLanguage;
 import com.spring.henallux.buyMyBag.service.CategoryService;
 import com.spring.henallux.buyMyBag.service.ProductService;
 import com.spring.henallux.buyMyBag.service.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@SessionAttributes({Constants.BASKET, Constants.CHOSEN_LANGUAGE})
+@SessionAttributes({Constants.BASKET})
 @RequestMapping(value="/")
 public class homePageController  {
     private ProductService productService;
@@ -26,11 +22,6 @@ public class homePageController  {
     public Basket basket(){
         return new Basket();
     }
-    @ModelAttribute(Constants.CHOSEN_LANGUAGE)
-    public ChosenLanguage chosenLanguage(){
-        System.out.println("init chosen language");
-        return new ChosenLanguage(Constants.FRENCH);
-    }
 
     @Autowired
     public homePageController(ProductService productService, CategoryService categoryService, PromotionService promotionService){
@@ -40,13 +31,11 @@ public class homePageController  {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model, @ModelAttribute(value = Constants.BASKET)Basket basket,
-                       @ModelAttribute(value = Constants.CHOSEN_LANGUAGE)ChosenLanguage chosenLanguage) {
+    public String home(Model model, @ModelAttribute(value = Constants.BASKET)Basket basket) {
         model.addAttribute("products", productService.getAll());
         model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("promotions", promotionService.getAll());
         model.addAttribute("basket", basket);
-        model.addAttribute("chosenLanguage", chosenLanguage.getLanguage());
         return "integrated:index";
     }
 }

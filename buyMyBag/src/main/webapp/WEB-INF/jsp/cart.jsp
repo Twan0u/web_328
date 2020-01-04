@@ -46,7 +46,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
                 <a href="/checkout">
-                    <button class="btn btn-primary">Checkout</button>
+                    <button class="btn btn-primary"><spring:message code="checkout"/></button>
                 </a>
             </div>
         </div>

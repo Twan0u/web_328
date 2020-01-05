@@ -13,8 +13,8 @@ gantt
         Traductions Dynamiques							:done, 3h
         Promotions										:done, 3h
         Placer un produit ds caddie            			:crit, done, caddie, after login, 1d
-        Modifier le pannier								:crit, active, mcad, after caddie, 1d 
-        Passer commande									:crit,cmd, after mcad, 1d
+        Modifier le pannier								:crit, done, mcad, after caddie, 1d 
+        Passer commande									:crit, done, cmd, after mcad, 1d
         Création Du Zip			           				:crit, 06-01-2020, 3h
         Remise Du projet                    			:crit, 1h
 
@@ -26,7 +26,7 @@ gantt
 
         section Plus
         
-        Test Unitaires 									:p4,05-01-2020,4h
+        Test Unitaires 									:done, p4,05-01-2020,4h
 
        
        section if more time
@@ -90,25 +90,25 @@ Date de dépôt du travail : au plus tard le **lundi 6 janvier 2020 à 08h** du 
 
 * ~~ajouter nb X d'éléments à ajouter au panier dans la page d'un produit~~
 * ~~Ajout d'éléments au caddie~~
-* modification du caddie 
-  * top navigation bar
+* ~~modification du caddie~~
+  * ~~top navigation bar~~
   * ~~total~~
   * ~~mise à jour dynamique~~
 
 ### Modifier le panier
 
-* +
-* -
-* supprimer du panier
+* ~~+~~
+* ~~-~~
+* ~~supprimer du panier~~
 
 ### Passage de commande 
 
 * ~~vérifier que l'utilisateur est bien authentifié~~
-* Vérifier la commande (non nulle, ...)
+* ~~Vérifier la commande (non nulle, ...)~~
 * ~~Sauvegarder la commande dans la base de donnée~~
-* Confirmer la commande à l'utilisateur ( êtes vous sur)
-* Payement avec Paypal
-* Confirmation de Commande 
+* ~~Confirmer la commande à l'utilisateur ( êtes vous sur)~~
+* ~~Payement avec Paypal~~
+* ~~Confirmation de Commande~~ 
 
 ```mermaid
 stateDiagram
@@ -137,25 +137,25 @@ stateDiagram
 * ~~participants~~
 * ~~Présentation~~
 
-### Traduction 
+### ~~Traduction~~
 
 * ~~Messages dynamiques (articles)~~
-* Messages d'erreur 
-* Libellés statiques
-* Boutons
+* ~~Messages d'erreur~~
+* ~~Libellés statiques~~
+* ~~Boutons~~
 
-### Promotions
+### ~~Promotions~~
 
 * ~~sur tout en fonction des dates~~
-* Appliquer à la commande
+* ~~Appliquer à la commande~~
 
-### Page d'accueil 
+### ~~Page d'accueil~~
 
 * ~~Message unique (vous êtes)~~
 
-### Junit et Mockito
+### ~~Junit et Mockito~~
 
-### Verification des données entrées par l'utilisateur
+### ~~Verification des données entrées par l'utilisateur~~
 
 ### ~~check en DB~~
 

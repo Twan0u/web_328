@@ -124,7 +124,7 @@
                     <!-- Background image for card set in CSS! -->
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-center">S'Inscrire</h5>
+                    <h5 class="card-title text-center"><spring:message code="signUp"/></h5>
                     <form:form
                             id="userInscriptionForm"
                             method="POST"
@@ -135,22 +135,32 @@
                     <div class="form-label-group">
                         <form:input path="first_name" type="text" class="form-control" required="required"/>
                         <form:errors path="first_name"/>
-                        <label>firstName</label>
+                        <label><spring:message code="firstName"/></label>
                     </div>
                     <div class="form-label-group">
                         <form:input path="last_name" type="text" class="form-control" required="required"/>
                         <form:errors path="last_name"/>
-                        <label>lastName</label>
+                        <label><spring:message code="lastName"/></label>
                     </div>
                     <div class="form-label-group">
                         <form:input path="username" type="text" class="form-control" required="required"/>
                         <form:errors path="username"/>
-                        <label>Username</label>
+                        <label><spring:message code="username"/></label>
                     </div>
                     <div class="form-label-group">
-                        <form:input path="email" type="email" class="form-control" required="required"/>
+                        <form:input path="email" id="mail" type="email" class="form-control" required="required"/>
                         <form:errors path="email"/>
-                        <label>Email address</label>
+                        <label>E-mail</label>
+                        <script>
+                            var email = document.getElementById("mail");
+                            email.addEventListener("keyup",function (event) {
+                                if (email.validity.typeMismatch){
+                                    email.setCustomValidity("<spring:message code="EmailFormatError"/>")
+                                }else{
+                                    email.setCustomValidity("");
+                                }
+                            })
+                        </script>
                     </div>
 
                         <hr>
@@ -158,13 +168,13 @@
                         <div class="form-label-group">
                             <form:input path="password" type="password" class="form-control" required="required"/>
                             <form:errors path="password"/>
-                            <label>Password</label>
+                            <label><spring:message code="password"/></label>
                         </div>
 
                         <div class="form-label-group">
                             <form:input path="validationPassword" type="password" class="form-control" required="required"/>
                             <form:errors path="validationPassword"/>
-                            <label>Confirm password</label>
+                            <label><spring:message code="confirmPassword"/></label>
                         </div>
 
                         <hr>
@@ -172,34 +182,34 @@
                         <div class="form-label-group">
                             <form:input path="streetname" type="text" class="form-control" required="required"/>
 
-                            <label>streetName</label>
+                            <label><spring:message code="streetName"/></label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="streetnumber" type="text" class="form-control" required="required"/>
                             <form:errors path="streetnumber"/>
-                            <label>streetNumber</label>
+                            <label><spring:message code="streetNumber"/></label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="gender" type="text" class="form-control"/>
                             <form:errors path="gender"/>
-                            <label>gender</label>
+                            <label><spring:message code="gender"/></label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="phone_number" type="text" class="form-control" required="required"/>
                             <form:errors path="phone_number"/>
-                            <label>phone number</label>
+                            <label><spring:message code="phoneNumber"/></label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="locality" type="text" class="form-control" required="required"/>
                             <form:errors path="locality"/>
-                            <label>locality</label>
+                            <label><spring:message code="locality"/></label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="postal_code" type="text" class="form-control" required="required"/>
                             <form:errors path="postal_code"/>
-                            <label>postal code</label>
+                            <label><spring:message code="postalCode"/></label>
                         </div>
-                        <form:button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">S'Inscrire</form:button>
+                        <form:button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"><spring:message code="signUp"/></form:button>
                       </form:form>
                 </div>
             </div>

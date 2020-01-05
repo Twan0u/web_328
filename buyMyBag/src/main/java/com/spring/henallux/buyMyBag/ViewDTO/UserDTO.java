@@ -30,6 +30,7 @@ public class UserDTO {
     @NotNull
     private String streetnumber;
 
+    @Size(max=20)
     private String gender;
 
     @Size(min=1, max=32)

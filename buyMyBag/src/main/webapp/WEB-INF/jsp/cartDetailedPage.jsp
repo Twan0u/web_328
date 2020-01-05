@@ -35,21 +35,6 @@
     <a>
         <button class="btn btn-primary"><spring:message code="checkout"/></button>
 
-        <form id="paypal_form_one_time" target="_top" class="paypal-form" method="post" action="https://www.paypal.com/cgi-bin/webscr">
-            <input name="business" type="hidden" value="buyMyBag@business.com" name="business"/>
-            <input name="password" type="hidden" value="YourStrong(!)"/>
-            <input name="cert_id" type="hidden" value="UK5X979PVSZ76"/>
-            <input name="cmd" type="hidden" value="_xclick"/>
 
-            <input type="hidden" value="${basket.getTotalPriceOfArticles()}" name="amount">
-
-            <input type="hidden" value="EUR" name="currency_code">
-
-            <input type="hidden" value="http://localhost/" name="cancel_return">
-            <input type="hidden" value="http://localhost/detail/d" name="notify_url">
-            <input type="image" name="submit"
-                   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-                   alt="PayPal - The safer, easier way to pay online">
-        </form>
     </a>
 </div>

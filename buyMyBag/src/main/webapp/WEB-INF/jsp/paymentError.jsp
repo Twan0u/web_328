@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: Antoine Lambert
@@ -11,6 +12,9 @@
     <title>Title</title>
 </head>
 <body>
-Bravo
+    <h1><spring:message key="paymentCancelled"/></h1>
+    <div style="position:absolute;">
+        <img src="https://i.ibb.co/DwX0k7f/fat-Falling-Cart.jpg" style="max-width: 1000px; max-height: 1000px;"/>
+    </div>
 </body>
 </html>

@@ -1,8 +1,10 @@
 package com.spring.henallux.buyMyBag.controller;
 
 import com.spring.henallux.buyMyBag.ViewDTO.UserDTO;
+import com.spring.henallux.buyMyBag.constants.Constants;
 import com.spring.henallux.buyMyBag.exception.EmailAlreadyExists;
 import com.spring.henallux.buyMyBag.exception.UsernameAlreadyExists;
+import com.spring.henallux.buyMyBag.model.Basket;
 import com.spring.henallux.buyMyBag.model.UserModel;
 import com.spring.henallux.buyMyBag.service.UserDetailsServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +30,22 @@ public class signUpController {
     }
 
     @RequestMapping(method= RequestMethod.GET)
-    public String inscriptionPage(Model model){
+    public String inscriptionPage(Model model, @ModelAttribute(Constants.BASKET) Basket basket){
         model.addAttribute("newUser",new UserDTO());
+        model.addAttribute("basket", basket);
         return "integrated:signUp";
     }
 
     @RequestMapping(value="/submit", method=RequestMethod.POST)
-    public String submitUserInscription(@ModelAttribute(value="newUser")@Valid UserDTO newUser, final BindingResult errors){
+    public String submitUserInscription(@ModelAttribute(value="newUser")@Valid UserDTO newUser, final BindingResult errors
+            , @ModelAttribute(Constants.BASKET) Basket basket, Model model){
         if(errors.hasErrors()){
+            model.addAttribute("basket", basket);
             return "integrated:signUp";
         }
         if(!newUser.getPassword().equals(newUser.getValidationPassword())){
             errors.rejectValue("validationPassword", "PasswordsDontMatch");
+            model.addAttribute("basket", basket);
             return "integrated:signUp";
         }
         UserModel newUserModel = new UserModel();
@@ -67,10 +73,12 @@ public class signUpController {
 
         catch(UsernameAlreadyExists usernameAlreadyExists){
             errors.rejectValue("username", "UsernameAlreadyTaken");
+            model.addAttribute("basket", basket);
             return "integrated:signUp";
         }
         catch (EmailAlreadyExists emailAlreadyExists){
             errors.rejectValue("email", "EmailAlreadyTaken");
+            model.addAttribute("basket", basket);
             return "integrated:signUp";
         }
         return "redirect:/";

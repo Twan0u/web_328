@@ -25,7 +25,7 @@ body{font-family: 'Raleway', sans-serif;}
     <div class="row">
       <div class="col-lg-3">
 
-        <h1 class="my-4" style="font-family: 'Pacifico', cursive;" >Home</h1>
+        <h1 class="my-4" style="font-family: 'Pacifico', cursive;" ><spring:message code="home"/></h1>
         <c:forEach items="${categories}" var="category">
           <div class="list-group">
             <a href="<c:url value="/category/${category.getName()}"/>" class="list-group-item" style="font-family: 'Pacifico', cursive;">${category.getName()}</a>

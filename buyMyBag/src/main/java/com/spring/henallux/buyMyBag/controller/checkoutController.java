@@ -38,7 +38,7 @@ public class checkoutController {
 
     @RequestMapping(method= RequestMethod.GET)
     public String checkout(@ModelAttribute(value = Constants.BASKET) Basket basket, Model model){
-        if(basket == null)
+        if(basket.getNumberOfArticles() == 0)
             return "redirect:/basketDetails";
 
         Date now = new Date(System.currentTimeMillis());

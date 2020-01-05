@@ -22,7 +22,7 @@ import java.util.Map;
 
 @Controller
 @SessionAttributes({Constants.BASKET, Constants.CHOSEN_LANGUAGE})
-@RequestMapping(value="/checkout")
+@RequestMapping(value="/payment")
 public class checkoutController {
 
     private OrderService orderService;
@@ -39,7 +39,7 @@ public class checkoutController {
     @RequestMapping(method= RequestMethod.GET)
     public String checkout(@ModelAttribute(value = Constants.BASKET) Basket basket, Model model){
         if(basket == null)
-            return "redirect:/";
+            return "redirect:/basketDetails";
 
         Date now = new Date(System.currentTimeMillis());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -54,11 +54,11 @@ public class checkoutController {
                 orderLines.add(new OrderLineModel(0, entry.getValue(), entry.getKey().getPrice(), orderModel, entry.getKey()));
             }
             orderLineService.saveOrderLines(orderLines);
-            basket.emptyBasket();
         }
         catch (UsernameNotFoundException e){
             e.printStackTrace();
         }
-        return "redirect:/";
+        model.addAttribute("basket", basket);
+        return "integrated:payment";
     }
 }

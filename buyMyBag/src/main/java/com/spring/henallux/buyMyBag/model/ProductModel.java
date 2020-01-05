@@ -21,6 +21,10 @@ public class ProductModel {
         setCategory(category);
     }
 
+    public ProductModel(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
 
     public void setImages(List<String> images) {
         this.images = images;

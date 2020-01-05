@@ -5,7 +5,7 @@
 
 <head>
 
-  <title>TODO</title>
+  <title></title>
 
 </head>
 <style>

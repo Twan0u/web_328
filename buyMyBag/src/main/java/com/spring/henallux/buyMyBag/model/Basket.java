@@ -121,7 +121,8 @@ public class Basket {
         boolean needsMinPrice = applicablePromotion.getMin_order_price_for_application() != null
                 && applicablePromotion.getMin_order_price_for_application() != 0;
         if(!needsMinPrice || totalBasketPrice >= applicablePromotion.getMin_order_price_for_application()){
-            return totalBasketPrice - (totalBasketPrice * (applicablePromotion.getReduction_prct() / 100));
+            double priceWithDiscount =  totalBasketPrice - (totalBasketPrice * (applicablePromotion.getReduction_prct() / 100));
+            return Math.round(priceWithDiscount * 100.0) / 100.0;
         }
         return totalBasketPrice;
     }

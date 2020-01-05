@@ -25,6 +25,9 @@ public class PromotionEntity {
     @Column
     private String image_url;
 
+    @Column
+    private Double reduction_prct;
+
     public String getEventname() {
         return eventname;
     }
@@ -63,5 +66,13 @@ public class PromotionEntity {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public Double getReduction_prct() {
+        return reduction_prct;
+    }
+
+    public void setReduction_prct(Double reduction_prct) {
+        this.reduction_prct = reduction_prct;
     }
 }

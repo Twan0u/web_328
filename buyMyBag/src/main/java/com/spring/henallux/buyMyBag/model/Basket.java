@@ -1,10 +1,15 @@
 package com.spring.henallux.buyMyBag.model;
 
+import com.spring.henallux.buyMyBag.service.PromotionService;
+
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Basket {
     private Map<ProductModel, Integer> productsWithQuantity = new HashMap<>();
+    private ArrayList<PromotionModel> promotions;
 
     public Basket(){}
 
@@ -96,5 +101,32 @@ public class Basket {
                 productsWithQuantity.remove(productWithQt.getKey());
             }
         }
+    }
+
+    public double getPriceWithPromotionApplied(){
+        Date now = new Date(System.currentTimeMillis());
+        PromotionModel applicablePromotion = new PromotionModel();
+        int i = 0;
+        boolean foundPromo = false;
+        PromotionModel promotion;
+        while(i < promotions.size() && !foundPromo){
+            promotion = promotions.get(i);
+            if(now.getTime() <= promotion.getEvent_end_date().getTime() &&
+                    now.getTime() >= promotion.getEvent_start_date().getTime()){
+                applicablePromotion = promotion;
+                foundPromo = true;
+            }
+        }
+        double totalBasketPrice = getTotalPriceOfArticles();
+        boolean needsMinPrice = applicablePromotion.getMin_order_price_for_application() != null
+                && applicablePromotion.getMin_order_price_for_application() != 0;
+        if(!needsMinPrice || totalBasketPrice >= applicablePromotion.getMin_order_price_for_application()){
+            return totalBasketPrice - (totalBasketPrice * (applicablePromotion.getReduction_prct() / 100));
+        }
+        return totalBasketPrice;
+    }
+
+    public void setPromotions(ArrayList<PromotionModel> promotions) {
+        this.promotions = promotions;
     }
 }

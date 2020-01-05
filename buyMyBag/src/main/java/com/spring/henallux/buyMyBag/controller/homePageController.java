@@ -20,7 +20,9 @@ public class homePageController  {
 
     @ModelAttribute(Constants.BASKET)
     public Basket basket(){
-        return new Basket();
+        Basket basket = new Basket();
+        basket.setPromotions(promotionService.getAll());
+        return basket;
     }
 
     @Autowired

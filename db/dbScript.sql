@@ -74,7 +74,8 @@ CREATE TABLE IF NOT EXISTS promotion (
 	event_start_date datetime not null,
 	event_end_date datetime not null,
 	min_order_price_for_application double CHECK (min_order_price_for_application >= 0),
-    image_url varchar(300) not null
+    image_url varchar(300) not null,
+	reduction_prct double not null
 )engine=InnoDB;
 
 insert into category(name) values("Sacs en bandoulières");
@@ -246,8 +247,8 @@ insert into translation(language, product, product_description_translation) valu
 insert into translation(language, product, product_description_translation) values ("ENGLISH", "aa", "english description for product aa");
 insert into translation(language, product, product_description_translation) values ("FRENCH", "aa", "description francaise du produit aa");
 
-insert into promotion(eventname, event_start_date, event_end_date, image_url)
-	values ("reduction_noel", "2019-12-01", "2019-12-30", "https://i.ibb.co/tDdP8K4/snowman-Reduction.png");
-insert into promotion(eventname, event_start_date, event_end_date, min_order_price_for_application, image_url)
-	values ("reduction_janvier", "2020-01-01", "2020-01-31", 100.0, "https://i.ibb.co/SJyYQhN/reduction-Janvier.png");
+insert into promotion(eventname, event_start_date, event_end_date, image_url, reduction_prct)
+	values ("reduction_noel", "2019-12-01", "2019-12-30", "https://i.ibb.co/tDdP8K4/snowman-Reduction.png", 20.5);
+insert into promotion(eventname, event_start_date, event_end_date, min_order_price_for_application, image_url, reduction_prct)
+	values ("reduction_janvier", "2020-01-01", "2020-01-31", 100.0, "https://i.ibb.co/SJyYQhN/reduction-Janvier.png", 42.0);
     

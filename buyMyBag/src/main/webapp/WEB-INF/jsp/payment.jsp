@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Payement-page</title>
+    <title>Payment-page</title>
 </head>
 <body>
     <form id="paypal_form_one_time" target="_top" class="paypal-form" method="post" action="https://www.paypal.com/cgi-bin/webscr">
@@ -17,7 +17,7 @@
         <input name="cert_id" type="hidden" value="UK5X979PVSZ76"/>
         <input name="cmd" type="hidden" value="_xclick"/>
 
-        <input type="hidden" value="${basket.getTotalPriceOfArticles()}" name="amount">
+        <input type="hidden" value="${basket.getPriceWithPromotionApplied()}" name="amount">
 
         <input type="hidden" value="EUR" name="currency_code">
 

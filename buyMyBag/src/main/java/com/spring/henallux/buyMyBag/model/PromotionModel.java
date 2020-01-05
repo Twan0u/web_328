@@ -8,6 +8,7 @@ public class PromotionModel {
     private Date event_end_date;
     Double min_order_price_for_application;
     private String image_url;
+    private Double reduction_prct;
 
     public PromotionModel() { }
 
@@ -49,5 +50,13 @@ public class PromotionModel {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public Double getReduction_prct() {
+        return reduction_prct;
+    }
+
+    public void setReduction_prct(Double reduction_prct) {
+        this.reduction_prct = reduction_prct;
     }
 }

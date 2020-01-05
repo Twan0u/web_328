@@ -134,18 +134,22 @@
 
                     <div class="form-label-group">
                         <form:input path="first_name" type="text" class="form-control" required="required"/>
+                        <form:errors path="first_name"/>
                         <label>firstName</label>
                     </div>
                     <div class="form-label-group">
                         <form:input path="last_name" type="text" class="form-control" required="required"/>
+                        <form:errors path="last_name"/>
                         <label>lastName</label>
                     </div>
                     <div class="form-label-group">
                         <form:input path="username" type="text" class="form-control" required="required"/>
+                        <form:errors path="username"/>
                         <label>Username</label>
                     </div>
                     <div class="form-label-group">
                         <form:input path="email" type="email" class="form-control" required="required"/>
+                        <form:errors path="email"/>
                         <label>Email address</label>
                     </div>
 
@@ -153,11 +157,13 @@
 
                         <div class="form-label-group">
                             <form:input path="password" type="password" class="form-control" required="required"/>
+                            <form:errors path="password"/>
                             <label>Password</label>
                         </div>
 
                         <div class="form-label-group">
                             <form:input path="validationPassword" type="password" class="form-control" required="required"/>
+                            <form:errors path="validationPassword"/>
                             <label>Confirm password</label>
                         </div>
 
@@ -165,26 +171,32 @@
 
                         <div class="form-label-group">
                             <form:input path="streetname" type="text" class="form-control" required="required"/>
+
                             <label>streetName</label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="streetnumber" type="text" class="form-control" required="required"/>
+                            <form:errors path="streetnumber"/>
                             <label>streetNumber</label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="gender" type="text" class="form-control"/>
+                            <form:errors path="gender"/>
                             <label>gender</label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="phone_number" type="text" class="form-control" required="required"/>
+                            <form:errors path="phone_number"/>
                             <label>phone number</label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="locality" type="text" class="form-control" required="required"/>
+                            <form:errors path="locality"/>
                             <label>locality</label>
                         </div>
                         <div class="form-label-group">
                             <form:input path="postal_code" type="text" class="form-control" required="required"/>
+                            <form:errors path="postal_code"/>
                             <label>postal code</label>
                         </div>
                         <form:button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">S'Inscrire</form:button>

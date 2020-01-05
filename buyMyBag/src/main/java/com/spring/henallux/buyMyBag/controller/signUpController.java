@@ -36,12 +36,10 @@ public class signUpController {
     @RequestMapping(value="/submit", method=RequestMethod.POST)
     public String submitUserInscription(@ModelAttribute(value="newUser")@Valid UserDTO newUser, final BindingResult errors){
         if(errors.hasErrors()){
-            System.out.println("has errors");
             return "integrated:signUp";
         }
         if(!newUser.getPassword().equals(newUser.getValidationPassword())){
-            errors.rejectValue("validationPassword", "Les mots de passe ne correspondent pas");
-            System.out.println("password differents");
+            errors.rejectValue("validationPassword", "PasswordsDontMatch");
             return "integrated:signUp";
         }
         UserModel newUserModel = new UserModel();
@@ -66,14 +64,15 @@ public class signUpController {
         try{
             userService.registerNewUserAccount(newUserModel);
         }
-        // todo gérer les erreurs
+
         catch(UsernameAlreadyExists usernameAlreadyExists){
-            System.out.println("username existe deja");
+            errors.rejectValue("username", "UsernameAlreadyTaken");
+            return "integrated:signUp";
         }
         catch (EmailAlreadyExists emailAlreadyExists){
-            System.out.println("email existe deja");
+            errors.rejectValue("email", "EmailAlreadyTaken");
+            return "integrated:signUp";
         }
-        //redirect vers home ou la derniere page visitée
         return "redirect:/";
     }
 }

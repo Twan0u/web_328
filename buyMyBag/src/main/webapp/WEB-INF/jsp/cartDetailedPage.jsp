@@ -45,7 +45,7 @@
 
             <input type="hidden" value="EUR" name="currency_code">
 
-            <input type="hidden" value="localhost:/" name="cancel_return">
+            <input type="hidden" value="http://localhost/" name="cancel_return">
             <input type="hidden" value="http://localhost/detail/d" name="notify_url">
             <input type="image" name="submit"
                    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"

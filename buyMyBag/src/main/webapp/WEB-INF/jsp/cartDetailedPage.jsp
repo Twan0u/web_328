@@ -25,8 +25,13 @@
     </c:forEach>
 
     <tr class="total">
-        <th scope="row">Total</th>
+        <th scope="row"><spring:message code="total"/></th>
         <td>€${basket.getTotalPriceOfArticles()}</td>
+        <td>${basket.getNumberOfArticles()}</td>
+    </tr>
+    <tr class="total">
+        <th scope="row"><spring:message code="totalPromo"/></th>
+        <td>€${basket.getPriceWithPromotionApplied()}</td>
         <td>${basket.getNumberOfArticles()}</td>
     </tr>
     </tbody>
